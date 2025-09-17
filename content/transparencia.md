@@ -1,7 +1,8 @@
 ---
 title: "Transparencia"
+description: "Nuestros documentos públicos."
+layout: single-fullwidth
 draft: false
-description: "page"
 ---
 
 <!-- SECTION 1: Foundational Documents (Full Width) -->
