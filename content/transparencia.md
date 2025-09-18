@@ -1,37 +1,13 @@
 ---
 title: "Transparencia"
 description: "Nuestros documentos públicos."
-layout: single-fullwidth
+layout: single-transparencia
 draft: false
 ---
 
-<!-- SECTION 1: Foundational Documents (Full Width) -->
-<div class="container-fluid py-5 px-4 bg-light">
-  <h2 class="text-center mb-5">Documentos Fundacionales</h2>
-  <div class="row justify-content-center text-center">
-    <div class="col-lg-4">
-      <svg xmlns='http://www.w3.org/2000/svg' class='feather text-violet feather-big' width="4em" height="4em">
-        <use href="{{ `images/feather/feather-sprite.svg#file-text` | relURL }}"/>
-      </svg>
-      <h3 class="h3 mt-3">Estatutos</h3>
-      <p><a href="/docs/estatutos.pdf" class="btn btn-outline-primary btn-sm">Descargar</a></p>
-    </div>
-    <div class="col-lg-4">
-      <svg xmlns='http://www.w3.org/2000/svg' class='feather text-violet feather-big' width="4em" height="4em">
-        <use href="{{ `images/feather/feather-sprite.svg#award` | relURL }}"/>
-      </svg>
-      <h3 class="h3 mt-3">Reglamento Interno</h3>
-      <p><a href="/docs/reglamento.pdf" class="btn btn-outline-primary btn-sm">Descargar</a></p>
-    </div>
-    <div class="col-lg-4">
-      <svg xmlns='http://www.w3.org/2000/svg' class='feather text-violet feather-big' width="4em" height="4em">
-        <use href="{{ `images/feather/feather-sprite.svg#users` | relURL }}"/>
-      </svg>
-      <h3 class="h3 mt-3">Código de Ética</h3>
-      <p><a href="/docs/codigo_etica.pdf" class="btn btn-outline-primary btn-sm">Descargar</a></p>
-    </div>
-  </div>
-</div>
+## Here is some Markdown content
+
+Once upon a time there was a little _red-riding-hood_ that walked about the **forest**.
 
 <!-- SECTION 2: Directory Members (Full Width) -->
 <div class="container-fluid py-5 px-4">

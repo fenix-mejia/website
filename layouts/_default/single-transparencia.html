@@ -1,0 +1,10 @@
+{{ define "main" }}
+
+<div class="container-fluid py-5 px-4 bg-light">
+  <h2 class="text-center mb-5">Documentos Fundacionales</h2>
+  {{ partial "transparencia/foundational-docs.html" . }}
+</div>
+
+{{ .Content }}
+
+{{ end }}
