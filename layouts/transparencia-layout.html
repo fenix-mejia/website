@@ -1,0 +1,26 @@
+{{ define "main" }}
+
+<section class="section py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Documentos Fundacionales</h2>
+    {{ partial "transparencia/foundational-docs.html" . }}
+  </div>
+</section>
+
+<section class="section py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Directorio Actual</h2>
+    {{ partial "transparencia/directory-members" . }}
+  </div>
+</section>
+
+<section class="section py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5">Reportes y Documentos</h2>
+    {{ partial "transparencia/documents.html" . }}
+  </div>
+</section>
+
+{{ .Content }}
+
+{{ end }}
