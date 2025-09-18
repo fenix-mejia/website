@@ -1,15 +1,42 @@
 <div class="row justify-content-center">
   <div class="col-lg-8">
     <ul class="list-group">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        María González <span class="badge bg-primary rounded-pill">Presidenta</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        Juan Pérez <span class="badge bg-secondary rounded-pill">Secretario</span>
-      </li>
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        Ana López <span class="badge bg-success rounded-pill">Tesorera</span>
-      </li>
+      {{/* Create a map (dictionary) to assign specific Bootstrap badge colors to roles.
+        This keeps styling logic right here in the template, not mixed in the data.
+      */}}
+      {{ $roleColors := dict
+          "Presidenta" "bg-primary"
+          "Vicepresidente" "bg-primary"
+          "Secretario" "bg-secondary"
+          "Responsable Económico" "bg-success"
+      }}
+      {{/* Set a default color for all other roles */}}
+      {{ $defaultColor := "bg-info text-dark" }}
+
+      {{/* Loop through each person listed in the data file */}}
+      {{ range .Site.Data.transparencia.directory }}
+        {{/* Only display the list item if the person's name is not blank */}}
+        {{ if .name }}
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            {{ .name }}
+
+            {{/* Check if role contains "Principal" or "Suplente" */}}
+            {{ $isPrincipal := findRE `Principal` .role }}
+            {{ $isSuplente := findRE `Suplente` .role }}
+
+            {{ $badgeColor := "" }}
+            {{ if $isPrincipal }}
+              {{ $badgeColor = "bg-dark" }}
+            {{ else if $isSuplente }}
+              {{ $badgeColor = "bg-light text-dark" }}
+            {{ else }}
+              {{ $badgeColor = index $roleColors .role | default $defaultColor }}
+            {{ end }}
+
+            <span class="badge {{ $badgeColor }} rounded-pill">{{ .role }}</span>
+          </li>
+        {{ end }}
+      {{ end }}
     </ul>
   </div>
 </div>

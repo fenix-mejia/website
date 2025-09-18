@@ -1,0 +1,20 @@
+# A list of document groups. Each group becomes an accordion item.
+
+- group_title: "Documentos 2025"
+  documents:
+    - title: "Enero 2025 - Reporte Financiero"
+      url: "/docs/2025/enero.pdf"
+    - title: "Febrero 2025 - Acta de Reunión"
+      url: "/docs/2025/febrero.pdf"
+
+- group_title: "Documentos 2024"
+  documents:
+    - title: "Rendición de Cuentas 2024"
+      url: "/docs/compliance/rendicion-cuentas-2024.pdf"
+    - title: "Informe de Actividad Social"
+      url: "/docs/compliance/informe-actividad-social.pdf"
+
+# - group_title: "Documentos 2023"
+#   documents:
+#     - title: "Diciembre 2024 - Auditoría"
+#       url: "/docs/2024/diciembre.pdf"

@@ -1,35 +1,26 @@
-<!-- SECTION 3: Reports Accordion (Full Width) -->
-<div class="container-fluid py-5 px-4">
-  <h2 class="text-center mb-5">Reportes y Documentos</h2>
-  <div class="accordion" id="reportsAccordion">
+<div class="accordion" id="reportsAccordion">
+  {{/* We now loop through the more generic 'documents' data file */}}
+  {{ range $index, $group := .Site.Data.transparencia.documents }}
+    {{/* Generate unique IDs. Using 'urlize' on the title is a robust way to create a safe ID */}}
+    {{ $groupId := $group.group_title | urlize }}
+    {{ $collapseId := printf "collapse-%s" $groupId }}
+    {{ $headingId := printf "heading-%s" $groupId }}
+
     <div class="accordion-item">
-      <h2 class="accordion-header" id="heading2025">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2025" aria-expanded="true" aria-controls="collapse2025">
-          2025
+      <h2 class="accordion-header" id="{{ $headingId }}">
+        <button class="accordion-button {{ if ne $index 0 }}collapsed{{ end }}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ $collapseId }}" aria-expanded="{{ eq $index 0 }}" aria-controls="{{ $collapseId }}">
+          {{ $group.group_title }}
         </button>
       </h2>
-      <div id="collapse2025" class="accordion-collapse collapse show" aria-labelledby="heading2025" data-bs-parent="#reportsAccordion">
+      <div id="{{ $collapseId }}" class="accordion-collapse collapse {{ if eq $index 0 }}show{{ end }}" aria-labelledby="{{ $headingId }}" data-bs-parent="#reportsAccordion">
         <div class="accordion-body">
           <ul>
-            <li><a href="/docs/2025/enero.pdf">Enero 2025 - Reporte Financiero</a></li>
-            <li><a href="/docs/2025/febrero.pdf">Febrero 2025 - Acta de Reunión</a></li>
+            {{ range $group.documents }}
+              <li><a href="{{ .url | relURL }}">{{ .title }}</a></li>
+            {{ end }}
           </ul>
         </div>
       </div>
     </div>
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="heading2024">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2024" aria-expanded="false" aria-controls="collapse2024">
-          2024
-        </button>
-      </h2>
-      <div id="collapse2024" class="accordion-collapse collapse" aria-labelledby="heading2024" data-bs-parent="#reportsAccordion">
-        <div class="accordion-body">
-          <ul>
-            <li><a href="/docs/2024/diciembre.pdf">Diciembre 2024 - Auditoría</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+  {{ end }}
 </div>
