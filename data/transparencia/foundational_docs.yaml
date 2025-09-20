@@ -1,7 +1,11 @@
 - title: Régimen Orgánico
-  file_path: docs/4. Orgánico Funcional del MACFE.pdf
+  file_path: docs/Régimen Orgánico.pdf
   icon: file-text
 
-- title: Principios
+- title: Declaración de Principios Ideológicos
   file_path: docs/zprincipios.pdf
+  icon: award
+
+- title: Reglamento de Democracia Interna
+  file_path: docs/Reglamento de democracia interna.pdf
   icon: award

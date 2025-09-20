@@ -1,8 +1,8 @@
 <div class="accordion" id="reportsAccordion">
   {{/* We now loop through the more generic 'documents' data file */}}
-  {{ range $index, $group := .Site.Data.transparencia.documents }}
+  {{ range $index, $group := .Site.Data.transparencia.registros_oficiales }}
     {{/* Generate unique IDs. Using 'urlize' on the title is a robust way to create a safe ID */}}
-    {{ $groupId := $group.group_title | urlize }}
+    {{ $groupId := $group.group_id }}
     {{ $collapseId := printf "collapse-%s" $groupId }}
     {{ $headingId := printf "heading-%s" $groupId }}
 
