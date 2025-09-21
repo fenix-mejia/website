@@ -21,3 +21,8 @@
   {{ end }}
   {{ partial "footer/facebook-pixel-light.html" . }}
 {{end}}
+
+{{ $autohideNavbar := resources.Get "js/autohide-navbar.js" }}
+{{ if $autohideNavbar }}
+  <script src="{{ $autohideNavbar.RelPermalink }}"></script>
+{{ end }}

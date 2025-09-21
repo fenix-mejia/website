@@ -23,6 +23,18 @@ h1, h2, h3, h4, h5, h6 {
 
 // 3. ---- COMPONENT STYLING ----
 
+// Header & Navbar Styling
+.main-header {
+  position: sticky;
+  top: 0;
+  z-index: 1020; // Default Bootstrap z-index for navbars
+  transition: transform 0.3s ease-in-out;
+}
+
+.main-header.navbar-hidden {
+  transform: translateY(-100%);
+}
+
 // Navbar Styling
 .navbar {
   background: var(--nav-gradient); // Apply the beautiful gradient
@@ -53,6 +65,11 @@ h1, h2, h3, h4, h5, h6 {
       color: #ffffff; // Brighten on hover/focus
       text-decoration: underline;
     }
+  }
+
+  // Add this new rule for smaller text
+  .small-text {
+    font-size: 0.875rem; // Equivalent to 14px on a standard 16px base font size
   }
 }
 
