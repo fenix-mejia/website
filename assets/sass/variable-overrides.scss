@@ -1,53 +1,40 @@
 // assets/sass/_variable-overrides.scss
 
 // 1. ---- BRAND COLOR PALETTE ----
-// Define your organization's core colors as Sass variables for easy reuse.
+// A warmer, more vibrant palette inspired by your Quarto theme.
 
-$brand-blue:  #002D72;
-$brand-yellow: #FFD200;
-$brand-gold:   #FF7A00;
-
-// Create harmonious tints and shades for UI elements.
-$brand-blue-light: #E6ECF5; // A very delicate, light blue for backgrounds.
-$brand-blue-dark:  #001A40; // A darker shade for hover effects or footers.
-
-// Define a professional set of neutral grays for text and backgrounds.
-$gray-100: #f8f9fa;
-$gray-500: #adb5bd;
-$gray-800: #343a40;
-$gray-900: #212529;
+$brand-navy: #2A4091;
+$brand-gold: #E0B127;
+$brand-dark-slate: #4A5568; // For body text
+$brand-footer-bg: #2D3E50;
+$brand-footer-text: #E6F0F8;
+$brand-subtle-bg: #F7FDFF; // For subtle backgrounds like accordions
 
 
 // 2. ---- MAP BRAND COLORS TO BOOTSTRAP THEME ----
-// Override Bootstrap's default theme colors with your brand palette.
-// This ensures components like buttons, alerts, and links are automatically styled.
+// This makes Bootstrap components (buttons, alerts) use your brand colors.
 
-$primary:       $brand-blue;
-$secondary:     $gray-800;
-$success:       #198754; // Keeping Bootstrap's default green for success messages.
-$info:          $brand-blue-light;
-$warning:       $brand-yellow;
-$danger:        #dc3545; // Keeping Bootstrap's default red for danger/errors.
-$light:         $gray-100;
-$dark:          $brand-blue-dark;
+$primary:       $brand-navy;
+$secondary:     $brand-dark-slate;
+$warning:       $brand-gold;
+$light:         $brand-subtle-bg;
+$dark:          $brand-footer-bg;
 
 
-// 3. ---- BODY & TEXT DEFAULTS ----
-// Set the base font and background colors for the entire site.
+// 3. ---- TYPOGRAPHY & BODY DEFAULTS ----
 
-$body-bg:    #ffffff; // A clean white background.
-$body-color: $gray-800; // A dark gray is easier on the eyes than pure black.
-$link-color: $brand-blue;
-$link-hover-color: $brand-blue-dark;
+$body-bg:       #ffffff; // Body background will be handled by a gradient
+$body-color:    $brand-dark-slate;
+$headings-color:$brand-navy;
+$link-color:    $brand-navy;
+$link-hover-color: darken($brand-navy, 10%);
 
 
-// 4. ---- COMPONENT-SPECIFIC OVERRIDES ----
-// Your suggestion: a light blue navbar with dark blue text.
-// To achieve this, we customize the variables for the `.navbar-light` class.
+// 4. ---- NAVBAR TEXT COLORS ----
+// We will apply the background via a gradient in styles.scss,
+// but we still need to define the text colors for `.navbar-light`.
 
-$navbar-light-bg:              $brand-blue-light; // The delicate light blue background.
-$navbar-light-color:           rgba($brand-blue, 0.75); // Slightly muted brand blue for text.
-$navbar-light-hover-color:     $brand-blue; // Solid brand blue on hover.
-$navbar-light-active-color:    $brand-blue; // Solid brand blue for the active page.
-$navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$brand-blue}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
-$navbar-light-brand-color:     $brand-blue;
+$navbar-light-color:           rgba($brand-navy, 0.8);
+$navbar-light-hover-color:     $brand-navy;
+$navbar-light-active-color:    $brand-navy;
+$navbar-light-brand-color:     $brand-navy;

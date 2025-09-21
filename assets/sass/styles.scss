@@ -1,50 +1,61 @@
-.home {
-    --bd-purple: #4c0bce;
-    --bd-violet: #712cf9;
-    --bd-accent: #ffe484;
-    --bd-violet-rgb: 112.520718,44.062154,249.437846;
-    --bd-accent-rgb: 255,228,132;
-    --bd-pink-rgb: 214,51,132;
+// assets/sass/styles.scss
 
-    .bd-masthead {
-        padding: 3rem 0;
-        background-image: linear-gradient(180deg, rgba(var(--bs-body-bg-rgb), 0.01), rgba(var(--bs-body-bg-rgb), 1) 85%),radial-gradient(ellipse at top left, rgba(var(--bs-primary-rgb), 0.5), transparent 50%),radial-gradient(ellipse at top right, rgba(var(--bd-accent-rgb), 0.5), transparent 50%),radial-gradient(ellipse at center right, rgba(var(--bd-violet-rgb), 0.5), transparent 50%),radial-gradient(ellipse at center left, rgba(var(--bd-pink-rgb), 0.5), transparent 50%);
-    }
+// 1. ---- GRADIENT DEFINITIONS (CSS VARIABLES) ----
+// Define gradients in the root scope so they can be used anywhere.
 
-    .btn-bd-primary {
-        --bs-btn-font-weight: 600;
-        --bs-btn-color: var(--bs-white);
-        --bs-btn-bg: var(--bd-violet);
-        --bs-btn-border-color: var(--bd-violet);
-        --bs-btn-border-radius: .5rem;
-        --bs-btn-hover-color: var(--bs-white);
-        --bs-btn-hover-bg: #6528e0;
-        --bs-btn-hover-border-color: #6528e0;
-        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
-        --bs-btn-active-color: var(--bs-btn-hover-color);
-        --bs-btn-active-bg: #5a23c8;
-        --bs-btn-active-border-color: #5a23c8;
-    }
+:root {
+  --nav-gradient: linear-gradient(15deg, #F0F9FF 0%, #E1F3FE 100%);
+  --body-gradient: linear-gradient(175deg, #F7FDFF 0%, white 100%);
 }
 
-.text-violet {
-    color: #6528e0;
+
+// 2. ---- APPLY GRADIENTS & GLOBAL STYLES ----
+
+body {
+  background: var(--body-gradient);
 }
 
-.list {
-    .card {
-        transition: transform 0.2s ease-in-out;
-
-        &:hover {
-            transform: scale(1.01);
-        }
-    }
+// Set heading colors explicitly
+h1, h2, h3, h4, h5, h6 {
+  color: $headings-color;
 }
 
-.navbar-brand {
-    transition: transform 0.2s ease-in-out;
 
-    &:hover {
-        transform: rotate(-2deg) scale(1.1);
+// 3. ---- COMPONENT STYLING ----
+
+// Navbar Styling
+.navbar {
+  background: var(--nav-gradient); // Apply the beautiful gradient
+  box-shadow: 0 2px 8px rgba($brand-navy, 0.07); // Add a subtle shadow
+}
+
+// Accordion Styling (like on your Transparencia page)
+.accordion-button {
+  // Use the subtle background color for the accordion headers
+  background-color: $light !important;
+}
+
+// Footer Styling
+.footer-dark {
+  background-color: $brand-footer-bg;
+  color: $brand-footer-text; // A fallback color for any text without a specific class
+
+  // Override Bootstrap's .text-muted specifically for the footer
+  .text-muted {
+    color: $brand-footer-text !important; // Use !important as a last resort if needed, but specificity should be enough
+  }
+
+  // Style footer links for clarity and interactivity
+  .nav-link {
+    color: lighten($brand-footer-text, 15%); // Make links slightly brighter than text
+    &:hover,
+    &:focus {
+      color: #ffffff; // Brighten on hover/focus
+      text-decoration: underline;
     }
+  }
+}
+
+.text-golden {
+    color: #E0B32E
 }
