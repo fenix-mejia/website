@@ -25,6 +25,6 @@ footerAboutText = "We protect your website so you can provide a safe environment
 
 [options]
   bootStrapJs = true
-  breadCrumb = true
+  breadCrumb = false
   listCategoryFilter = true
   listTagFilter = true
