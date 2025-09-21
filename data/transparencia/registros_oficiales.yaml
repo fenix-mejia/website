@@ -2,15 +2,10 @@
   group_id: year-2025
   documents:
     - title: Convocatoria elecciones internas 2025
-      url: "/docs/Convocatoria elecciones internas 2025.pdf"
+      url: docs/Convocatoria elecciones internas 2025.pdf
 
 - group_title: Año 2024
   group_id: year-2024
   documents:
     - title: Informe económico y contable
-      url: "/docs/Informe Económico Financiero y Documentación Contable 2024.pdf"
-
-# - group_title: "Documentos 2023"
-#   documents:
-#     - title: "Diciembre 2024 - Auditoría"
-#       url: "/docs/2024/diciembre.pdf"
+      url: docs/Informe Económico Financiero y Documentación Contable 2024.pdf
