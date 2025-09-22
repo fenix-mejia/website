@@ -1,5 +1,5 @@
 ---
-title: "Contact"
+title: "Contacto"
 draft: false
 menu:
   main:
