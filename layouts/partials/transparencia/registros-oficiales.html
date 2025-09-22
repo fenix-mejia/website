@@ -22,7 +22,7 @@
         <div class="accordion-body">
           <ul>
             {{ range $group.documents }}
-              <li><a href="{{ .url | relURL }}">{{ .title }}</a></li>
+              <li><a href="{{ .url | relURL }}" target="_blank" rel="noopener noreferrer">{{ .title }}</a></li>
             {{ end }}
           </ul>
         </div>

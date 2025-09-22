@@ -1,39 +1,36 @@
 <div class="row justify-content-center">
   <div class="col-lg-8">
-    <ul class="list-group">
-      {{/* Create a map (dictionary) to assign specific Bootstrap badge colors to roles.
-        This keeps styling logic right here in the template, not mixed in the data.
-      */}}
-      {{ $roleColors := dict
-          "Presidenta" "bg-primary"
-          "Vicepresidente" "bg-primary"
-          "Secretario" "bg-secondary"
-          "Responsable Económico" "bg-success"
-      }}
-      {{/* Set a default color for all other roles */}}
-      {{ $defaultColor := "bg-info text-dark" }}
+    {{/* Apply our new custom card style to the <ul> element */}}
+    <ul class="list-group directory-card">
 
-      {{/* Loop through each person listed in the data file */}}
+      {{/* A simplified map to assign our new, semantic CSS classes.
+        This is much cleaner as styling is now handled in SCSS.
+      */}}
+      {{ $roleClasses := dict
+          "Presidenta" "badge-role-exec"
+          "Vicepresidente" "badge-role-exec"
+          "Secretario" "badge-role-key"
+          "Responsable Económico" "badge-role-key"
+      }}
+
       {{ range .Site.Data.transparencia.directory }}
-        {{/* Only display the list item if the person's name is not blank */}}
         {{ if .name }}
           <li class="list-group-item d-flex justify-content-between align-items-center">
             {{ .name }}
 
-            {{/* Check if role contains "Principal" or "Suplente" */}}
-            {{ $isPrincipal := findRE `Principal` .role }}
-            {{ $isSuplente := findRE `Suplente` .role }}
-
-            {{ $badgeColor := "" }}
-            {{ if $isPrincipal }}
-              {{ $badgeColor = "bg-dark" }}
-            {{ else if $isSuplente }}
-              {{ $badgeColor = "bg-light text-dark" }}
+            {{/* This logic now cleanly determines the single class to apply.
+            */}}
+            {{ $badgeClass := "" }}
+            {{ if findRE `Principal` .role }}
+              {{ $badgeClass = "badge-role-principal" }}
+            {{ else if findRE `Suplente` .role }}
+              {{ $badgeClass = "badge-role-alternate" }}
             {{ else }}
-              {{ $badgeColor = index $roleColors .role | default $defaultColor }}
+              {{ $badgeClass = index $roleClasses .role }}
             {{ end }}
 
-            <span class="badge {{ $badgeColor }} rounded-pill">{{ .role }}</span>
+            {{/* The badge now uses our custom base class and the determined tier class */}}
+            <span class="badge badge-role {{ $badgeClass }} rounded-pill">{{ .role }}</span>
           </li>
         {{ end }}
       {{ end }}
