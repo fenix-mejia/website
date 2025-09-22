@@ -1,27 +1,36 @@
-<h2 class="mb-4">Formulario de Contacto</h2>
-<p>¿Tiene alguna pregunta o desea unirse a nuestro movimiento? Envíenos un mensaje y nos pondremos en contacto con usted.</p>
+{{/* layouts/partials/contacto/form.html */}}
 
-<form name="contacto" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+{{/* Use the 'with' function to ensure this only renders if params are set */}}
+{{ with .Site.Params.contactForm }}
+  <h2 class="mb-3">{{ .title }}</h2>
+  <p class="mb-4">{{ .intro | safeHTML }}</p>
 
-  <input type="hidden" name="form-name" value="contacto" />
+  <form name="contacto" method="POST" action="/gracias/" data-netlify="true" data-netlify-honeypot="bot-field">
 
-  <p class="d-none">
-    <label>No llenar si eres humano: <input name="bot-field" /></label>
-  </p>
+    <input type="hidden" name="form-name" value="contacto" />
 
-  <div class="mb-3">
-    <label for="name" class="form-label">Su Nombre</label>
-    <input type="text" class="form-control" name="name" id="name" required>
-  </div>
-  <div class="mb-3">
-    <label for="email" class="form-label">Su Correo Electrónico</label>
-    <input type="email" class="form-control" name="email" id="email" required>
-  </div>
-  <div class="mb-3">
-    <label for="message" class="form-label">Mensaje</label>
-    <textarea id="message" class="form-control" name="message" rows="5" required></textarea>
-  </div>
-  <button type="submit" class="btn btn-primary">
-    <i class="bi bi-envelope-fill me-2"></i>Enviar Mensaje
-  </button>
-</form>
+    <p class="d-none">
+      <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+    </p>
+
+    <div class="mb-3">
+      <label for="name" class="form-label d-block">{{ .nameLabel }}</label>
+      <input type="text" class="form-control w-100" name="name" id="name" placeholder="{{ .namePlaceholder }}" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="email" class="form-label d-block">{{ .emailLabel }}</label>
+      <input type="email" class="form-control w-100" name="email" id="email" placeholder="{{ .emailPlaceholder }}" required>
+    </div>
+
+    <div class="mb-3">
+      <label for="message" class="form-label d-block">{{ .messageLabel }}</label>
+      <textarea id="message" class="form-control w-100" name="message" rows="5" placeholder="{{ .messagePlaceholder }}" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">
+      <i class="bi bi-envelope-fill me-2"></i>{{ .buttonText }}
+    </button>
+
+  </form>
+{{ end }}

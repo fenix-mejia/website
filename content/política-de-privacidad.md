@@ -38,6 +38,6 @@ Esta recopilación de datos se rige por la política de privacidad de Netlify. N
 
 ### Contáctenos
 
-Si tiene alguna pregunta, [contáctenos](/contact/).
+Si tiene alguna pregunta, [contáctenos](/contacto/).
 
 **Actualizado al:** *21 de septiembre de 2025*
