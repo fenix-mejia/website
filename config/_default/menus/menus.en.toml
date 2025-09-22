@@ -40,14 +40,14 @@ weight = 50
 
 [[social]]
   name = "Facebook"
-  pre = "<svg class='bi bi-facebook'><use href='/icons/bootstrap-icons.svg#facebook'/></svg>"
-  url = "https://facebook.com/your-page-name/"
+  pre = "<svg xmlns='http://www.w3.org/2000/svg' class='bi bi-facebook'><use href='/icons/bootstrap-icons.svg#facebook'/></svg>"
+  url = "https://www.facebook.com/M.A.C.FE.LISTA110"
   weight = 10
-  title = "Follow us on Facebook"
+  title = "Síquenos en Facebook."
 
 [[social]]
   name = "TikTok"
   pre = "<svg class='bi bi-tiktok'><use href='/icons/bootstrap-icons.svg#tiktok'/></svg>"
-  url = "https://www.tiktok.com/@your-username/"
+  url = "https://www.tiktok.com/@movimientofenix110"
   weight = 20
-  title = "Follow us on TikTok"
+  title = "Síguenos en Tiktok."

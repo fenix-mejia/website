@@ -79,35 +79,29 @@ h1, h2, h3, h4, h5, h6 {
 
 // Social media icons styling.
 .menu-social .nav-link {
-  // Target the SVG icon within the link
-  svg {
-    // This is the default state for all social icons
+  // Target the SVG icon within the link.
+  // Using .bi is more specific and safer.
+  .bi {
     width: 1.2rem;
     height: 1.2rem;
-    fill: transparent;
-    stroke: currentColor;
-    stroke-width: 0.5;
-    transition: all 0.2s ease-in-out;
-    // shape-rendering: geometricPrecision; // <-- ADD THIS LINE for quality
-  }
 
-  // Generic hover state (optional fallback)
-  &:hover svg {
+    // --- THE FIX ---
+    // Set the FILL to the current text color.
     fill: currentColor;
-    stroke: currentColor;
+
+    // Animate the fill property on hover.
+    transition: fill 0.2s ease-in-out;
   }
 
   // --- Brand-specific hover colors ---
-  // These rules will override the generic hover state.
+  // These rules will now correctly change the icon's body color.
 
   &:hover .bi-facebook {
-    fill: #1877F2;   // Official Facebook Blue
-    stroke: #1877F2;
+    fill: #1877F2;  // Official Facebook Blue
   }
 
   &:hover .bi-tiktok {
-    fill: #010101;   // TikTok Black
-    stroke: #010101;
+    fill: #000000;  // TikTok Black
   }
 }
 
