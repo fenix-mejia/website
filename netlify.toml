@@ -1,0 +1,6 @@
+[[headers]]
+  # This rule applies to all pages on your site
+  for = "/*"
+  [headers.values]
+    # This is the Content Security Policy
+    Content-Security-Policy = "script-src 'self' 'unsafe-inline' https://unpkg.com; style-src 'self' 'unsafe-inline' https://unpkg.com; object-src 'none'; base-uri 'none'; img-src 'self' data: https://*.tile.openstreetmap.org;"
