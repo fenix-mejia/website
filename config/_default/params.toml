@@ -39,7 +39,7 @@ mapMarkerText = "<b>Sede del Movimiento Fénix</b><br>Machachi, Ecuador."
 
 # Custom Map Marker Settings
 enableCustomMarker = true
-customMarkerPath = "images/marker-fenix-bk-v2.png" # Path within the assets folder
+customMarkerPath = "/images/marker-fenix-bk-v2.png" # Path within the assets folder
 customMarkerSize = [32, 48] # [width, height] in pixels
 customMarkerAnchor = [16, 48] # The point of the icon that corresponds to the map location (usually bottom-center)
 customMarkerPopupAnchor = [0, -48] # The point from which the popup should open, relative to the anchor
