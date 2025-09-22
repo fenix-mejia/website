@@ -67,6 +67,29 @@ h1, h2, h3, h4, h5, h6 {
     }
   }
 
+  .footer-logo-link {
+    // Ensure the link doesn't have default underlines, etc.
+    text-decoration: none;
+
+    .footer-logo {
+      // Set a fixed height for the logo in the footer
+      height: 40px;
+      // Start with the logo being grayscale
+      filter: grayscale(100%);
+      // Make the transition smooth
+      transition: filter 0.3s ease-in-out;
+      // Slightly reduce opacity to make it more subtle
+      opacity: 0.7;
+    }
+
+    // On hover, bring the logo to full color and opacity
+    &:hover .footer-logo,
+    &:focus .footer-logo {
+      filter: grayscale(0%);
+      opacity: 1;
+    }
+  }
+
   // Add this new rule for smaller text
   .small-text {
     font-size: 0.875rem; // Equivalent to 14px on a standard 16px base font size
