@@ -46,3 +46,6 @@ hugo.linux
 # IDE / Editor specific
 .vscode/
 .idea/
+
+#Git backup
+.git_backup
