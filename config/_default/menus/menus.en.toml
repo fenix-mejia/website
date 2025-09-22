@@ -3,11 +3,11 @@ name = "Sobre Nosotros"
 url = "sobre-nosotros"
 weight = 10
 
-[[main]]
-identifier = "actualidad"
-name = "Actualidad"
-url = "actualidad"
-weight = 20
+# [[main]]
+# identifier = "actualidad"
+# name = "Actualidad"
+# url = "actualidad"
+# weight = 20
 
 [[main]]
 name = "Transparencia"

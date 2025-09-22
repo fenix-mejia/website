@@ -23,11 +23,11 @@ enableEmoji = true
   date = ["date", "publishDate", "lastmod"]
   lastmod = ["lastmod", ":fileModTime", ":default"]
 
-[taxonomies]
-  tag = "tags"
-  category = "categories"
-  series = 'series'
-  author = "authors"
+# [taxonomies]
+#   tag = "tags"
+#   category = "categories"
+#   series = 'series'
+#   author = "authors"
 
 [sitemap]
   changefreq = "weekly"
