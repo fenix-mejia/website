@@ -23,6 +23,27 @@ footerAbout = true
 footerAboutTitle = "Few Words About Us"
 footerAboutText = "We protect your website so you can provide a safe environment to build trust and improve the user experience of your visitors.<br/><br/>Salvus Site is the partner that you can rely on for preventive and reactive cybersecurity."
 
+# Physical Address Details
+address_street = "Ciudad de Machachi, cantón Mejía"
+address_province = "Provincia de Pichincha"
+address_country = "Ecuador"
+
+# OpenStreetMap Coordinates for the map
+enableOSM = true
+latitude = "-0.5159352810421839" # Approximate coordinates for Machachi
+longitude = "-78.56452879917067"
+mapZoom = 17
+
+# Text for the popup marker on the map (HTML is allowed)
+mapMarkerText = "<b>Sede del Movimiento Fénix</b><br>Machachi, Ecuador."
+
+# Custom Map Marker Settings
+enableCustomMarker = true
+customMarkerPath = "images/marker-fenix-bk-v2.png" # Path within the assets folder
+customMarkerSize = [32, 48] # [width, height] in pixels
+customMarkerAnchor = [16, 48] # The point of the icon that corresponds to the map location (usually bottom-center)
+customMarkerPopupAnchor = [0, -48] # The point from which the popup should open, relative to the anchor
+
 [options]
   bootStrapJs = true
   breadCrumb = false

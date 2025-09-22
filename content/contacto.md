@@ -1,7 +1,7 @@
 ---
 title: "Contacto"
 draft: false
-template: contacto-layout
+layout: contacto-layout
 menu:
   main:
     weight: 90

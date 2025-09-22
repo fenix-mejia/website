@@ -1,0 +1,42 @@
+{{/* layouts/partials/contacto/map.html */}}
+{{/* Use a single 'if' to check for all required params without changing context */}}
+{{ if and .Site.Params.enableOSM .Site.Params.latitude .Site.Params.longitude }}
+
+<div id="osm-map" style="height: 450px; width: 100%;"></div>
+
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const lat = {{ .Site.Params.latitude }};
+        const lng = {{ .Site.Params.longitude }};
+        const zoom = {{ default 14 .Site.Params.mapZoom }};
+
+        const map = L.map('osm-map').setView([lat, lng], zoom);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+
+        {{ if and .Site.Params.enableCustomMarker .Site.Params.customMarkerPath }}
+            const customIcon = L.icon({
+                iconUrl: '{{ .Site.Params.customMarkerPath | absURL }}',
+                iconSize:     {{ .Site.Params.customMarkerSize | default "[38, 95]" }},
+                iconAnchor:   {{ .Site.Params.customMarkerAnchor | default "[22, 94]" }},
+                popupAnchor:  {{ .Site.Params.customMarkerPopupAnchor | default "[-3, -76]" }}
+            });
+
+            L.marker([lat, lng], {icon: customIcon}).addTo(map)
+                .bindPopup(`{{ .Site.Params.mapMarkerText | safeHTML }}`)
+                .openPopup();
+        {{ else }}
+            L.marker([lat, lng]).addTo(map)
+                .bindPopup(`{{ .Site.Params.mapMarkerText | safeHTML }}`)
+                .openPopup();
+        {{ end }}
+    });
+</script>
+
+{{ end }}

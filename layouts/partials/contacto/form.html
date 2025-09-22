@@ -1,0 +1,27 @@
+<h2 class="mb-4">Formulario de Contacto</h2>
+<p>¿Tiene alguna pregunta o desea unirse a nuestro movimiento? Envíenos un mensaje y nos pondremos en contacto con usted.</p>
+
+<form name="contacto" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+
+  <input type="hidden" name="form-name" value="contacto" />
+
+  <p class="d-none">
+    <label>No llenar si eres humano: <input name="bot-field" /></label>
+  </p>
+
+  <div class="mb-3">
+    <label for="name" class="form-label">Su Nombre</label>
+    <input type="text" class="form-control" name="name" id="name" required>
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Su Correo Electrónico</label>
+    <input type="email" class="form-control" name="email" id="email" required>
+  </div>
+  <div class="mb-3">
+    <label for="message" class="form-label">Mensaje</label>
+    <textarea id="message" class="form-control" name="message" rows="5" required></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">
+    <i class="bi bi-envelope-fill me-2"></i>Enviar Mensaje
+  </button>
+</form>
