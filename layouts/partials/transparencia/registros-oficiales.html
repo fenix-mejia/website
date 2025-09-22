@@ -1,4 +1,10 @@
-<div class="accordion" id="reportsAccordion">
+<div class="d-flex justify-content-end mb-3">
+  <button id="toggleAccordion" class="btn btn-primary" type="button" data-state="collapsed">
+    Expandir Todos
+  </button>
+</div>
+
+<div class="accordion accordion-styled" id="reportsAccordion">
   {{/* We now loop through the more generic 'documents' data file */}}
   {{ range $index, $group := .Site.Data.transparencia.registros_oficiales }}
     {{/* Generate unique IDs. Using 'urlize' on the title is a robust way to create a safe ID */}}
@@ -8,11 +14,11 @@
 
     <div class="accordion-item">
       <h2 class="accordion-header" id="{{ $headingId }}">
-        <button class="accordion-button {{ if ne $index 0 }}collapsed{{ end }}" type="button" data-bs-toggle="collapse" data-bs-target="#{{ $collapseId }}" aria-expanded="{{ eq $index 0 }}" aria-controls="{{ $collapseId }}">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#{{ $collapseId }}" aria-expanded="false" aria-controls="{{ $collapseId }}">
           {{ $group.group_title }}
         </button>
       </h2>
-      <div id="{{ $collapseId }}" class="accordion-collapse collapse {{ if eq $index 0 }}show{{ end }}" aria-labelledby="{{ $headingId }}" data-bs-parent="#reportsAccordion">
+      <div id="{{ $collapseId }}" class="accordion-collapse collapse" aria-labelledby="{{ $headingId }}">
         <div class="accordion-body">
           <ul>
             {{ range $group.documents }}

@@ -26,3 +26,11 @@
 {{ if $autohideNavbar }}
   <script src="{{ $autohideNavbar.RelPermalink }}"></script>
 {{ end }}
+
+{{ $accordionToggle := resources.Get "js/accordion-toggle.js" }}
+{{ if $accordionToggle }}
+  {{ if ne (hugo.Environment) "development" }}
+    {{ $accordionToggle = $accordionToggle | minify | fingerprint "sha512" }}
+  {{ end }}
+  <script src="{{ $accordionToggle.RelPermalink }}" {{ if ne (hugo.Environment) "development" }}integrity="{{ $accordionToggle.Data.Integrity }}"{{ end }} defer></script>
+{{ end }}
