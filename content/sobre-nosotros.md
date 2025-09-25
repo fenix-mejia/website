@@ -1,7 +1,7 @@
 ---
 title: "Sobre Nosotros"
 draft: false
-layout: single2
+layout: single
 ---
 
 El Movimiento de Acción Ciudadana Fénix (M.A.C.FE.) orgullosamente representa los intereses del ilustre pueblo mejiense. Nacimos como respuesta a una sociedad lastimada por la conducción precaria y errática de nuestro cantón, y al sentimiento de desilusión ante las promesas incumplidas y el estancamiento en nuestro desarrollo.

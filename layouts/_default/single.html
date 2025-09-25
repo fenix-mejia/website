@@ -1,13 +1,17 @@
 {{ define "main" }}
 
-<div class="container py-3">
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8">
 
-  {{/* This adds the title from your YAML and centers it. */}}
-  <h1 class="text-center mb-4">{{ .Title }}</h1>
+      <h1 class="text-center mb-4">{{ .Title }}</h1>
 
-  {{/* This renders your markdown content. */}}
-  {{ .Content }}
+      <div style="text-align: justify;">
+        {{ .Content }}
+      </div>
 
+    </div>
+  </div>
 </div>
 
 {{ end }}
