@@ -44,6 +44,9 @@ customMarkerSize = [32, 48] # [width, height] in pixels
 customMarkerAnchor = [16, 48] # The point of the icon that corresponds to the map location (usually bottom-center)
 customMarkerPopupAnchor = [0, -48] # The point from which the popup should open, relative to the anchor
 
+[analytics]
+enabled = false
+
 [contactForm]
   title = "Formulario de Contacto"
   intro = "¿Tiene alguna pregunta, sugerencia o desea unirse a nuestro movimiento? Envíenos un mensaje y nos pondremos en contacto con usted."

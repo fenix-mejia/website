@@ -214,3 +214,33 @@ h1, h2, h3, h4, h5, h6 {
     border: 1px solid #adb5bd !important;
   }
 }
+
+// 6. ---- THEMED BUTTON STYLING ----
+
+.themed-button {
+  // Use your site's primary navy blue for a strong, consistent look.
+  background-color: #052c65;
+  // White text provides excellent contrast and readability.
+  color: #ffffff;
+
+  // Add some padding to make the button feel substantial.
+  padding: 0.75rem 1.5rem;
+  // A subtle border-radius to soften the edges.
+  border-radius: 0.375rem;
+  // Make the font slightly bolder.
+  font-weight: 500;
+
+  // Add smooth transitions for a professional feel.
+  transition: background-color 0.2s ease-in-out, transform 0.1s ease;
+
+  // Define the hover and focus states for interactivity.
+  &:hover,
+  &:focus {
+    // Lighten the background color slightly on hover.
+    background-color: lighten(#052c65, 10%);
+    // Ensure the text remains white.
+    color: #ffffff;
+    // Add a subtle "lift" effect.
+    transform: translateY(-2px);
+  }
+}

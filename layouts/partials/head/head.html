@@ -1,5 +1,7 @@
 <head>
-    {{ block "head/google-tag" . }}{{ partial "head/google-tag.html" . }}{{ end }}
+    {{ if .Site.Params.analytics.enabled }}
+        {{ block "head/google-tag" . }}{{ partial "head/google-tag.html" . }}{{ end }}
+    {{ end }}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 

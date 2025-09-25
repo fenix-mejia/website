@@ -19,7 +19,9 @@
     {{ $js := . | minify | fingerprint "sha512" -}}
     <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" crossorigin="anonymous" defer></script>
   {{ end }}
-  {{ partial "footer/facebook-pixel-light.html" . }}
+  {{ if .Site.Params.analytics.enabled }}
+    {{ partial "footer/facebook-pixel-light.html" . }}
+  {{ end }}
 {{end}}
 
 {{ $autohideNavbar := resources.Get "js/autohide-navbar.js" }}
@@ -34,3 +36,5 @@
   {{ end }}
   <script src="{{ $accordionToggle.RelPermalink }}" {{ if ne (hugo.Environment) "development" }}integrity="{{ $accordionToggle.Data.Integrity }}"{{ end }} defer></script>
 {{ end }}
+
+

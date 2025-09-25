@@ -1,7 +1,13 @@
 {{ define "main" }}
 
-<div class="container py-3" style="text-align: justify;">
+<div class="container py-3">
+
+  {{/* This adds the title from your YAML and centers it. */}}
+  <h1 class="text-center mb-4">{{ .Title }}</h1>
+
+  {{/* This renders your markdown content. */}}
   {{ .Content }}
+
 </div>
 
 {{ end }}

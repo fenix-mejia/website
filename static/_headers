@@ -1,0 +1,6 @@
+/*
+  Content-Security-Policy: script-src 'self' 'unsafe-inline' https://unpkg.com https://tally.so; style-src 'self' 'unsafe-inline' https://unpkg.com https://tally.so; object-src 'none'; base-uri 'self'; img-src 'self' data: https://*.tile.openstreetmap.org; frame-src 'self' https://tally.so;
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: no-referrer
+  Permissions-Policy: geolocation=(), microphone=(), camera=()
