@@ -5,32 +5,16 @@
   <h2 class="mb-3">{{ .title }}</h2>
   <p class="mb-4">{{ .intro | safeHTML }}</p>
 
-  <form name="contacto" method="POST" action="/gracias/" data-netlify="true" data-netlify-honeypot="bot-field">
-
-    <input type="hidden" name="form-name" value="contacto" />
-
-    <p class="d-none">
-      <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
-    </p>
-
-    <div class="mb-3">
-      <label for="name" class="form-label d-block">{{ .nameLabel }}</label>
-      <input type="text" class="form-control w-100" name="name" id="name" placeholder="{{ .namePlaceholder }}" required>
-    </div>
-
-    <div class="mb-3">
-      <label for="email" class="form-label d-block">{{ .emailLabel }}</label>
-      <input type="email" class="form-control w-100" name="email" id="email" placeholder="{{ .emailPlaceholder }}" required>
-    </div>
-
-    <div class="mb-3">
-      <label for="message" class="form-label d-block">{{ .messageLabel }}</label>
-      <textarea id="message" class="form-control w-100" name="message" rows="5" placeholder="{{ .messagePlaceholder }}" required></textarea>
-    </div>
-
-    <button type="submit" class="btn btn-primary w-100">
-      <i class="bi bi-envelope-fill me-2"></i>{{ .buttonText }}
-    </button>
+  <iframe
+    data-tally-src="https://tally.so/embed/mRpjLd?alignLeft=1&transparentBackground=1&dynamicHeight=1&hideTitle=1"
+    loading="lazy"
+    width="100%"
+    height="447"
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+    title="Formulario de Contacto">
+  </iframe>
 
   </form>
 {{ end }}
