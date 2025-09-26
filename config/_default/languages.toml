@@ -11,3 +11,10 @@
   weight = 20
   [pt.params]
     languageISO = "PT"
+
+[es]
+  languageName = "Español"
+  languageCode = "es-EC"
+  weight = 10
+  [es.params]
+    languageISO = "ES"
