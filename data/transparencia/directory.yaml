@@ -1,32 +1,46 @@
-# A list of directory members. The order here is the order they will appear.
-# For vacant positions, simply leave the name field blank (name: "").
-
+# data/transparencia/directory.yaml
 - name: "Dr. Edwin David Yánez Calvachi"
-  role: "Presidente"
+  role_key: "presidente"
+  gender: "m"  # optional: m/f/x
 
-- name: "Lic. Diana Karolina Proaño de la Cueva "
-  role: "Vicepresidenta"
+- name: "Lic. Diana Karolina Proaño de la Cueva"
+  role_key: "vicepresidente"
+  gender: "f"
 
 - name: "MSc. Edwin David Yánez Orquera"
-  role: "Secretario"
+  role_key: "secretario"
+  gender: "m"
 
 - name: "Tnlga. Lucy Carmelina Oña Cedeño"
-  role: "Responsable Económico"
+  role_key: "responsable_economico"
+  gender: "f"
 
 - name: "Ing. Pablo Patricio Chicaiza Maigua"
-  role: "1º Vocal Principal"
+  role_key: "vocal"
+  vocal_type: "principal"
+  vocal_number: 1
 
 - name: "Dra. Silvia Lucía Rodríguez Valverde"
-  role: "2º Vocal Principal"
+  role_key: "vocal"
+  vocal_type: "principal"
+  vocal_number: 2
 
 - name: "Sr. Emilio Rafael Neira Oña"
-  role: "3º Vocal Principal"
+  role_key: "vocal"
+  vocal_type: "principal"
+  vocal_number: 3
 
-- name: "Srta. Mónica Jaire Fonseca Arroyo"
-  role: "1º Vocal Suplente"
+- name: "Srta. Mónica Jaire Fonseca Arroyo."
+  role_key: "vocal"
+  vocal_type: "suplente"
+  vocal_number: 1
 
 - name: "Sr. Luis Fernando Pazmiño"
-  role: "2º Vocal Suplente"
+  role_key: "vocal"
+  vocal_type: "suplente"
+  vocal_number: 2
 
 - name: "Lic. Amparo de las Mercedes Orquera Andrade"
-  role: "3º Vocal Principal"
+  role_key: "vocal"
+  vocal_type: "suplente"
+  vocal_number: 3

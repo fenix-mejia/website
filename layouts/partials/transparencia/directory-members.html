@@ -6,11 +6,16 @@
       {{/* A simplified map to assign our new, semantic CSS classes.
         This is much cleaner as styling is now handled in SCSS.
       */}}
-      {{ $roleClasses := dict
-          "Presidente" "badge-role-exec"
-          "Vicepresidenta" "badge-role-exec"
-          "Secretario" "badge-role-key"
-          "Responsable Económico" "badge-role-key"
+      {{ $roleLabels := dict
+        "presidente" (dict "m" "Presidente" "f" "Presidenta" "x" "Presidente")
+        "vicepresidente" (dict "m" "Vicepresidente" "f" "Vicepresidenta" "x" "Vicepresidente")
+        "secretario" (dict "m" "Secretario" "f" "Secretaria" "x" "Secretarie")
+        "responsable_economico" (dict "m" "Responsable Económico" "f" "Responsable Económica" "x" "Responsable Económique")
+      }}
+
+      {{ $vocalLabel := dict
+        "principal" "Vocal Principal"
+        "suplente" "Vocal Suplente"
       }}
 
       {{ range .Site.Data.transparencia.directory }}
@@ -18,19 +23,37 @@
           <li class="list-group-item d-flex justify-content-between align-items-center">
             {{ .name }}
 
-            {{/* This logic now cleanly determines the single class to apply.
-            */}}
-            {{ $badgeClass := "" }}
-            {{ if findRE `Principal` .role }}
-              {{ $badgeClass = "badge-role-principal" }}
-            {{ else if findRE `Suplente` .role }}
-              {{ $badgeClass = "badge-role-alternate" }}
+            {{/* Determine displayed role text */}}
+            {{ $displayRole := "" }}
+            {{ if eq .role_key "vocal" }}
+              {{ $num := printf "%dº " .vocal_number }}
+              {{ $displayRole = printf "%s%s" $num (index $vocalLabel .vocal_type) }}
             {{ else }}
-              {{ $badgeClass = index $roleClasses .role }}
+              {{ $gender := .gender | default "m" }}
+              {{ $roleMap := index $roleLabels .role_key }}
+              {{ $displayRole = index $roleMap $gender | default (index $roleMap "m") }}
             {{ end }}
 
-            {{/* The badge now uses our custom base class and the determined tier class */}}
-            <span class="badge badge-role {{ $badgeClass }} rounded-pill">{{ .role }}</span>
+            {{/* Determine badge class as before */}}
+            {{ $badgeClass := "" }}
+            {{ if eq .role_key "vocal" }}
+              {{ if eq .vocal_type "suplente" }}
+                {{ $badgeClass = "badge-role-alternate" }}
+              {{ else }}
+                {{ $badgeClass = "badge-role-principal" }}
+              {{ end }}
+            {{ else }}
+              {{/* Use your existing $roleClasses dict but keyed by role_key */}}
+              {{ $execRoles := slice "presidente" "vicepresidente" }}
+              {{ $keyRoles := slice "secretario" "responsable_economico" }}
+              {{ if in $execRoles .role_key }}
+                {{ $badgeClass = "badge-role-exec" }}
+              {{ else if in $keyRoles .role_key }}
+                {{ $badgeClass = "badge-role-key" }}
+              {{ end }}
+            {{ end }}
+
+            <span class="badge badge-role {{ $badgeClass }} rounded-pill">{{ $displayRole }}</span>
           </li>
         {{ end }}
       {{ end }}
