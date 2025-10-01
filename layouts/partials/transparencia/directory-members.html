@@ -1,59 +1,13 @@
 <div class="row justify-content-center">
   <div class="col-lg-8">
-    {{/* Apply our new custom card style to the <ul> element */}}
     <ul class="list-group directory-card">
-
-      {{/* A simplified map to assign our new, semantic CSS classes.
-        This is much cleaner as styling is now handled in SCSS.
-      */}}
-      {{ $roleLabels := dict
-        "presidente" (dict "m" "Presidente" "f" "Presidenta" "x" "Presidente")
-        "vicepresidente" (dict "m" "Vicepresidente" "f" "Vicepresidenta" "x" "Vicepresidente")
-        "secretario" (dict "m" "Secretario" "f" "Secretaria" "x" "Secretarie")
-        "responsable_economico" (dict "m" "Responsable Económico" "f" "Responsable Económica" "x" "Responsable Económique")
-      }}
-
-      {{ $vocalLabel := dict
-        "principal" "Vocal Principal"
-        "suplente" "Vocal Suplente"
-      }}
-
       {{ range .Site.Data.transparencia.directory }}
         {{ if .name }}
           <li class="list-group-item d-flex justify-content-between align-items-center">
             {{ .name }}
-
-            {{/* Determine displayed role text */}}
-            {{ $displayRole := "" }}
-            {{ if eq .role_key "vocal" }}
-              {{ $num := printf "%dº " .vocal_number }}
-              {{ $displayRole = printf "%s%s" $num (index $vocalLabel .vocal_type) }}
-            {{ else }}
-              {{ $gender := .gender | default "m" }}
-              {{ $roleMap := index $roleLabels .role_key }}
-              {{ $displayRole = index $roleMap $gender | default (index $roleMap "m") }}
-            {{ end }}
-
-            {{/* Determine badge class as before */}}
-            {{ $badgeClass := "" }}
-            {{ if eq .role_key "vocal" }}
-              {{ if eq .vocal_type "suplente" }}
-                {{ $badgeClass = "badge-role-alternate" }}
-              {{ else }}
-                {{ $badgeClass = "badge-role-principal" }}
-              {{ end }}
-            {{ else }}
-              {{/* Use your existing $roleClasses dict but keyed by role_key */}}
-              {{ $execRoles := slice "presidente" "vicepresidente" }}
-              {{ $keyRoles := slice "secretario" "responsable_economico" }}
-              {{ if in $execRoles .role_key }}
-                {{ $badgeClass = "badge-role-exec" }}
-              {{ else if in $keyRoles .role_key }}
-                {{ $badgeClass = "badge-role-key" }}
-              {{ end }}
-            {{ end }}
-
-            <span class="badge badge-role {{ $badgeClass }} rounded-pill">{{ $displayRole }}</span>
+            <span class="badge badge-role badge-role-{{ .kind }} rounded-pill">
+              {{ .role }}
+            </span>
           </li>
         {{ end }}
       {{ end }}
