@@ -28,13 +28,13 @@ Para poder funcionar, nuestro sitio web depende de los siguientes proveedores de
 
 Este sitio web está alojado en **Cloudflare, Inc**. Cloudflare proporciona una red de distribución de contenido (CDN) global que mejora el rendimiento y la seguridad del sitio. Como parte de sus servicios, Cloudflare puede recopilar datos de registro del servidor estándar, que pueden incluir su dirección IP, tipo de navegador, sistema operativo y las páginas que solicita. Esta recopilación de datos se rige por la política de privacidad de Cloudflare.
 
-&gt; ℹ️ **Nota**: Cloudflare no vende datos personales a anunciantes y los datos de registro se conservan por un período limitado. Para más detalles, puede consultar la [Política de Privacidad de Cloudflare](https://www.cloudflare.com/privacypolicy/).
+> ℹ️ **Nota**: Cloudflare no vende datos personales a anunciantes y los datos de registro se conservan por un período limitado. Para más detalles, puede consultar la [Política de Privacidad de Cloudflare](https://www.cloudflare.com/privacypolicy/).
 
 ### 2. Formulario de Contacto
 
 Utilizamos un formulario de contacto proporcionado por **Tally.so**. Cuando usted envía un mensaje a través de nuestro formulario, la información que proporciona (como su nombre, dirección de correo electrónico y el contenido de su mensaje) es procesada y almacenada por Tally para que podamos recibir y responder a su consulta.
 
-&gt; ℹ️ **Nota**: Tally es una plataforma que cumple con el GDPR, aloja datos en Europa y cifra la información. Para más detalles, puede consultar la [Política de Privacidad de Tally](https://tally.so/help/privacy-policy).
+> ℹ️ **Nota**: Tally es una plataforma que cumple con el GDPR, aloja datos en Europa y cifra la información. Para más detalles, puede consultar la [Política de Privacidad de Tally](https://tally.so/help/privacy-policy).
 
 ### 3. Mapa Interactivo
 
@@ -42,7 +42,7 @@ Mostramos un mapa interactivo utilizando teselas (tiles) proporcionadas por **CA
 
 Los mapas de CARTO utilizan datos geográficos de OpenStreetMap (una comunidad de mapeo abierto), por lo que la atribución correspondiente se muestra en el pie del mapa.
 
-&gt; ℹ️ **Nota**: CARTO es una plataforma de análisis de datos geoespaciales que proporciona estas imágenes de mapa como servicio gratuito sujeto a atribución. Para más detalles sobre cómo procesan los datos de solicitud, puede consultar la [Política de Privacidad de CARTO](https://carto.com/privacy/).
+> ℹ️ **Nota**: CARTO es una plataforma de análisis de datos geoespaciales que proporciona estas imágenes de mapa como servicio gratuito sujeto a atribución. Para más detalles sobre cómo procesan los datos de solicitud, puede consultar la [Política de Privacidad de CARTO](https://carto.com/privacy/).
 
 ## Contáctenos
 
