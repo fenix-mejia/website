@@ -28,22 +28,24 @@ Para poder funcionar, nuestro sitio web depende de los siguientes proveedores de
 
 Este sitio web está alojado en **Cloudflare, Inc**. Cloudflare proporciona una red de distribución de contenido (CDN) global que mejora el rendimiento y la seguridad del sitio. Como parte de sus servicios, Cloudflare puede recopilar datos de registro del servidor estándar, que pueden incluir su dirección IP, tipo de navegador, sistema operativo y las páginas que solicita. Esta recopilación de datos se rige por la política de privacidad de Cloudflare.
 
-> ℹ️ **Nota**: Cloudflare no vende datos personales a anunciantes y los datos de registro se conservan por un período limitado. Para más detalles, puede consultar la [Política de Privacidad de Cloudflare](https://www.cloudflare.com/privacypolicy/).
+&gt; ℹ️ **Nota**: Cloudflare no vende datos personales a anunciantes y los datos de registro se conservan por un período limitado. Para más detalles, puede consultar la [Política de Privacidad de Cloudflare](https://www.cloudflare.com/privacypolicy/).
 
 ### 2. Formulario de Contacto
 
 Utilizamos un formulario de contacto proporcionado por **Tally.so**. Cuando usted envía un mensaje a través de nuestro formulario, la información que proporciona (como su nombre, dirección de correo electrónico y el contenido de su mensaje) es procesada y almacenada por Tally para que podamos recibir y responder a su consulta.
 
-> ℹ️ **Nota**: Tally es una plataforma que cumple con el GDPR, aloja datos en Europa y cifra la información. Para más detalles, puede consultar la [Política de Privacidad de Tally](https://tally.so/help/privacy-policy).
+&gt; ℹ️ **Nota**: Tally es una plataforma que cumple con el GDPR, aloja datos en Europa y cifra la información. Para más detalles, puede consultar la [Política de Privacidad de Tally](https://tally.so/help/privacy-policy).
 
 ### 3. Mapa Interactivo
 
-Mostramos un mapa interactivo utilizando teselas de **OpenStreetMap**. Al ver la sección del sitio web que contiene el mapa, su navegador puede realizar solicitudes directamente a los servidores de OpenStreetMap para cargar las imágenes del mapa. Esto significa que su dirección IP será visible para OpenStreetMap.
+Mostramos un mapa interactivo utilizando teselas (tiles) proporcionadas por **CARTO**. Las imágenes del mapa que visualiza son servidas directamente desde los servidores de CARTO (`basemaps.cartocdn.com`). Al cargar el mapa, su navegador realiza solicitudes directamente a los servidores de CARTO, lo que significa que su dirección IP será visible para ellos.
 
-> ℹ️ **Nota**: OpenStreetMap es un proyecto comunitario y sin fines de lucro. No rastrean ni venden su información personal. Su política se centra en operar el servicio de mapas de manera anónima y segura. Para más detalles, puede consultar la [Política de Privacidad de la Fundación OpenStreetMap](https://wiki.osmfoundation.org/wiki/Privacy_Policy).
+Los mapas de CARTO utilizan datos geográficos de OpenStreetMap (una comunidad de mapeo abierto), por lo que la atribución correspondiente se muestra en el pie del mapa.
+
+&gt; ℹ️ **Nota**: CARTO es una plataforma de análisis de datos geoespaciales que proporciona estas imágenes de mapa como servicio gratuito sujeto a atribución. Para más detalles sobre cómo procesan los datos de solicitud, puede consultar la [Política de Privacidad de CARTO](https://carto.com/privacy/).
 
 ## Contáctenos
 
 Si tiene alguna pregunta, [contáctenos](/contacto/).
 
-**Actualizado al:** *25 de septiembre de 2025*
+**Actualizado al:** *5 de abril de 2026*
