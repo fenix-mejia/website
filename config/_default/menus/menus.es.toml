@@ -1,18 +1,27 @@
 [[main]]
-name = "Sobre Nosotros"
-url = "sobre-nosotros"
+name = "Plan de trabajo"
+url = "/#plan"
 weight = 10
 
-# [[main]]
-# identifier = "actualidad"
-# name = "Actualidad"
-# url = "actualidad"
-# weight = 20
+[[main]]
+name = "Territorio"
+url = "/#territorio"
+weight = 20
+
+[[main]]
+name = "Edwin Yánez"
+url = "/#candidato"
+weight = 30
+
+[[main]]
+name = "Sobre Nosotros"
+url = "sobre-nosotros"
+weight = 40
 
 [[main]]
 name = "Transparencia"
 url = "transparencia"
-weight = 30
+weight = 50
 
 [[social]]
   name = "Facebook"

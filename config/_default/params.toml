@@ -5,9 +5,9 @@
 # https://gohugo.io/templates/internal/#twitter-cards
 # https://schema.org/Thing
 # https://schema.org/Article
-description = "Aquí se construye el futuro de Mejía."
-images = ['images/logo.svg','images/site-feature-image.png']
-mainMenuLogo = "images/logo.svg"
+description = "Un nuevo comienzo para Mejía: oportunidades, bienestar, ambiente y una gestión municipal cercana y transparente."
+images = ['brand/fenix-logo.svg']
+mainMenuLogo = "brand/fenix-logo.svg"
 
 # For favicons
 ## Chrome Browser
@@ -43,6 +43,10 @@ customMarkerPath = "/images/marker-fenix-bk-v2.png" # Path within the assets fol
 customMarkerSize = [32, 48] # [width, height] in pixels
 customMarkerAnchor = [16, 48] # The point of the icon that corresponds to the map location (usually bottom-center)
 customMarkerPopupAnchor = [0, -48] # The point from which the popup should open, relative to the anchor
+
+[whatsapp]
+number = ""
+message = "Hola, quiero compartir una propuesta para Mejía:"
 
 [analytics]
 enabled = false

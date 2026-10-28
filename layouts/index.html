@@ -1,29 +1,211 @@
 {{ define "main" }}
+{{ $hero := .Params.hero }}
+{{ $whatsappURL := printf "https://wa.me/?text=%s" (urlquery .Site.Params.whatsapp.message) }}
+{{ with .Site.Params.whatsapp.number }}
+  {{ $whatsappURL = printf "https://wa.me/%s?text=%s" . (urlquery $.Site.Params.whatsapp.message) }}
+{{ end }}
 
-<section class="section bd-masthead">
-  <div class="container-xxl">
-    <div class="col-md-8 mx-auto text-center my-5">
-      <img class="d-block mx-auto mb-3" src="{{ `images/logo.svg` | relURL }}" width="150" height="150" alt="Bootstrap">
-      <h1 class="display-4 fw-semibold mb-3">{{ .Site.Title }}</h1>
-      <p class="lead mb-4">{{ .Site.Params.Description }}</p>
-      <!--<a class="btn btn-bd-primary btn-lg px-4 mb-2" href="https://github.com/filipecarneiro/hugo-bootstrap-theme" role="button">Get Started</a>
-      <p class="text-muted mb-0">Open-source MIT Licensed.</p>-->
+<main class="landing-page">
+  <section class="landing-hero" id="inicio">
+    <div class="landing-hero__glow" aria-hidden="true"></div>
+    <div class="container landing-hero__container">
+      <div class="landing-hero__copy">
+        <p class="landing-eyebrow">{{ $hero.eyebrow }}</p>
+        <h1 class="landing-hero__title">
+          {{ $hero.title }}
+          <span>{{ $hero.title_accent }}</span>
+        </h1>
+        <p class="landing-hero__summary">{{ $hero.summary }}</p>
+        <div class="landing-hero__actions">
+          <a class="landing-button landing-button--primary" href="#plan">
+            {{ $hero.primary_action }}
+            <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#arrow-down"></use></svg>
+          </a>
+          <a class="landing-button landing-button--quiet" href="{{ $whatsappURL }}" target="_blank" rel="noopener noreferrer">
+            <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#whatsapp"></use></svg>
+            {{ $hero.secondary_action }}
+          </a>
+        </div>
+        <div class="landing-hero__identity">
+          <span class="landing-hero__identity-line" aria-hidden="true"></span>
+          <div>
+            <strong>{{ $hero.candidate }}</strong>
+            <span>{{ $hero.role }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="landing-hero__visual">
+        <div class="landing-hero__sun" aria-hidden="true"></div>
+        <svg class="landing-hero__mountains" viewBox="0 0 700 260" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 220L108 104L174 170L280 44L358 150L431 92L552 202L621 138L700 220V260H0Z"></path>
+          <path d="M0 238L138 168L220 214L340 126L433 206L527 156L700 232V260H0Z"></path>
+        </svg>
+        {{ with resources.Get "images/landing/candidate-placeholder.jpg" }}
+          {{ $image := .Process "fill 800x1000 Center webp q82" }}
+          <figure class="landing-portrait">
+            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $hero.image_alt }}" fetchpriority="high">
+            <figcaption>Fotografía provisional</figcaption>
+          </figure>
+        {{ end }}
+        <div class="landing-hero__period">
+          <span aria-hidden="true"></span>
+          {{ $hero.period }}
+        </div>
+      </div>
     </div>
-  </div>
-</section>
+    <a class="landing-hero__scroll" href="#plan" aria-label="Desplazarse hasta el plan de trabajo">
+      <span>Desliza para conocer</span>
+      <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#arrow-down"></use></svg>
+    </a>
+  </section>
 
-<!--<section class="section container my-3">
-  {{ partial "features" . }}
-</section>
+  <section class="landing-stats" aria-label="El plan en cifras">
+    <div class="container">
+      <dl class="landing-stats__grid">
+        {{ range .Params.stats }}
+          <div class="landing-stat">
+            <dt>{{ .label }}</dt>
+            <dd>{{ .value }}</dd>
+          </div>
+        {{ end }}
+      </dl>
+    </div>
+  </section>
 
-<section class="section container my-3">
-  <h3 class="text-secondary text-center my-5">Latest Posts</h3>
-  {{ partial "latest-posts" . }}
-</section>
+  <section class="landing-section landing-plan" id="plan">
+    <div class="container">
+      <header class="landing-section__header">
+        <p class="landing-eyebrow">{{ .Params.plan.eyebrow }}</p>
+        <h2>{{ .Params.plan.title }}</h2>
+        <p>{{ .Params.plan.summary }}</p>
+      </header>
+      <div class="landing-policy-grid">
+        {{ range .Params.pillars }}
+          <article class="landing-policy-card landing-policy-card--{{ .icon }}">
+            <div class="landing-policy-card__top">
+              <span class="landing-policy-card__number">{{ .number }}</span>
+              <span class="landing-icon" aria-hidden="true">
+                <svg><use href="/icons/bootstrap-icons.svg#{{ .icon }}"></use></svg>
+              </span>
+            </div>
+            <h3>{{ .title }}</h3>
+            <p class="landing-policy-card__subtitle">{{ .subtitle }}</p>
+            <p>{{ .description }}</p>
+            <ul>
+              {{ range .points }}
+                <li>
+                  <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#check2"></use></svg>
+                  <span>{{ . }}</span>
+                </li>
+              {{ end }}
+            </ul>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
 
-<section class="section container my-3">
-  <h3 class="text-secondary text-center my-5">Featured Pages</h3>
-  {{ partial "featured-pages" . }}
-</section>-->
+  {{ with .Params.outcomes }}
+    <section class="landing-section landing-outcomes">
+      <div class="container">
+        <header class="landing-section__header landing-section__header--compact">
+          <p class="landing-eyebrow">{{ .eyebrow }}</p>
+          <h2>{{ .title }}</h2>
+        </header>
+        <div class="landing-outcomes__grid">
+          {{ range .items }}
+            <article class="landing-outcome">
+              <span class="landing-icon" aria-hidden="true">
+                <svg><use href="/icons/bootstrap-icons.svg#{{ .icon }}"></use></svg>
+              </span>
+              <h3>{{ .title }}</h3>
+              <p>{{ .text }}</p>
+            </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
 
+  <section class="landing-section landing-territory" id="territorio">
+    <div class="container">
+      <div class="landing-territory__intro">
+        <div>
+          <p class="landing-eyebrow landing-eyebrow--gold">{{ .Params.territory.eyebrow }}</p>
+          <h2>{{ .Params.territory.title }}</h2>
+        </div>
+        <p>{{ .Params.territory.summary }}</p>
+      </div>
+      {{ with resources.Get "images/landing/territory-placeholder.jpg" }}
+        {{ $image := .Process "resize 1600x webp q82" }}
+        <figure class="landing-territory__photo">
+          <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Params.territory.image_alt }}" loading="lazy">
+          <figcaption>{{ $.Params.territory.image_note }}</figcaption>
+        </figure>
+      {{ end }}
+      <div class="landing-parishes">
+        {{ range .Params.parishes }}
+          <article class="landing-parish">
+            <span class="landing-parish__marker" aria-hidden="true">
+              <svg><use href="/icons/bootstrap-icons.svg#geo-alt"></use></svg>
+            </span>
+            <h3>{{ .name }}</h3>
+            <p>{{ .priority }}</p>
+          </article>
+        {{ end }}
+      </div>
+    </div>
+  </section>
+
+  {{ with .Params.candidate }}
+    <section class="landing-section landing-candidate" id="candidato">
+      <div class="container landing-candidate__grid">
+        <div class="landing-candidate__intro">
+          <p class="landing-eyebrow">{{ .eyebrow }}</p>
+          <h2>{{ .title }}</h2>
+          <div class="landing-candidate__name">
+            <strong>{{ .name }}</strong>
+            <span>{{ .role }}</span>
+          </div>
+        </div>
+        <div class="landing-candidate__story">
+          <p class="landing-placeholder-note">{{ .note }}</p>
+          {{ range .paragraphs }}
+            <p>{{ . }}</p>
+          {{ end }}
+          <ul>
+            {{ range .values }}
+              <li>
+                <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#check-circle"></use></svg>
+                {{ . }}
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
+  {{ with .Params.participation }}
+    <section class="landing-participation">
+      <div class="container landing-participation__inner">
+        <div class="landing-participation__seal" aria-hidden="true">
+          <svg><use href="/icons/bootstrap-icons.svg#chat-square-text"></use></svg>
+        </div>
+        <div>
+          <p class="landing-eyebrow landing-eyebrow--gold">{{ .eyebrow }}</p>
+          <h2>{{ .title }}</h2>
+          <p>{{ .text }}</p>
+        </div>
+        <a class="landing-button landing-button--gold" href="{{ $whatsappURL }}" target="_blank" rel="noopener noreferrer">
+          <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#whatsapp"></use></svg>
+          {{ .action }}
+        </a>
+      </div>
+    </section>
+  {{ end }}
+</main>
+
+{{ partial "landing/whatsapp.html" . }}
 {{ end }}

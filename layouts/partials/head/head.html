@@ -5,7 +5,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {{ if eq .Section "contacto" }}
     <script async src="https://tally.so/widgets/embed.js"></script>
+    {{ end }}
 
     {{ block "head/content-security-policy" . }}{{ partial "head/content-security-policy.html" . }}{{ end }}
     {{ block "head/stylesheet" . }}{{ partial "head/stylesheet.html" . }}{{ end }}

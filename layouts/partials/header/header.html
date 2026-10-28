@@ -7,12 +7,11 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}">
+      <a class="navbar-brand" href="{{ .Site.Home.RelPermalink }}" aria-label="Movimiento Fénix, inicio">
         {{ if isset .Site.Params "mainmenulogo" }}
-        <img src="{{ .Site.Params.mainMenuLogo | relURL }}" alt="logo" width="28.68" height="50"
+        <img src="{{ .Site.Params.mainMenuLogo | relURL }}" alt="Movimiento Fénix, Lista 110" width="54" height="54"
           class="d-inline-block align-text-top">
         {{ end }}
-        {{ .Site.Title }}
       </a>
 
       <!-- Menu Toggler -->
@@ -48,7 +47,7 @@
           </li>
           {{ else }}
           <li class="nav-item">
-            <a class="nav-link{{ if $active }} active{{ end }}" aria-current="page" href="{{ .URL | relLangURL }}"{{ with .Title }} title='{{ . }}' aria-label='{{ . }}'{{ end }}>{{ .Name }}</a>
+            <a class="nav-link{{ if $active }} active{{ end }}" {{ if $active }}aria-current="page"{{ end }} href="{{ .URL | relLangURL }}"{{ with .Title }} title='{{ . }}' aria-label='{{ . }}'{{ end }}>{{ .Name }}</a>
           </li>
           {{ end }}
           {{ end -}}
