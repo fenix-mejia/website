@@ -291,10 +291,10 @@
 .landing-portrait {
   position: absolute;
   z-index: 1;
-  bottom: -0.75rem;
+  bottom: 0.75rem;
   left: 50%;
   width: 112%;
-  max-width: 660px;
+  max-width: 690px;
   margin: 0;
   pointer-events: none;
   transform: translateX(-50%);
@@ -1274,7 +1274,7 @@
 
   .landing-portrait {
     width: 112%;
-    max-width: 410px;
+    max-width: 420px;
   }
 
   .landing-parishes {
