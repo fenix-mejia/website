@@ -324,27 +324,6 @@
   white-space: nowrap;
 }
 
-.landing-hero__scroll {
-  position: absolute;
-  bottom: 1.25rem;
-  left: 50%;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--landing-muted);
-  font-size: 0.68rem;
-  letter-spacing: 0.11em;
-  text-decoration: none;
-  text-transform: uppercase;
-  transform: translateX(-50%);
-}
-
-.landing-hero__scroll svg {
-  width: 0.9rem;
-  height: 0.9rem;
-  animation: landing-drift 1.8s ease-in-out infinite;
-}
-
 .landing-stats {
   position: relative;
   z-index: 2;
@@ -577,18 +556,7 @@
 }
 
 .landing-territory__intro {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 4rem;
-  align-items: end;
   margin-bottom: 3rem;
-}
-
-.landing-territory__intro > p {
-  margin: 0;
-  color: #c6d4e0;
-  font-size: 0.98rem;
-  line-height: 1.8;
 }
 
 .landing-territory__photo {
@@ -852,6 +820,109 @@
   color: #8c6b0c;
 }
 
+.landing-achievement__sources {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid #dfe7ea;
+}
+
+.landing-achievement__sources > span {
+  color: var(--landing-ink);
+  font-size: 0.68rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.landing-achievement__sources a {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  color: var(--landing-blue);
+  font-size: 0.72rem;
+  font-weight: 650;
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.landing-achievement__sources a:hover,
+.landing-achievement__sources a:focus {
+  text-decoration: underline;
+}
+
+.landing-achievement__sources a svg {
+  width: 0.8rem;
+  height: 0.8rem;
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+}
+
+.landing-resume {
+  margin-top: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid #e1e8eb;
+}
+
+.landing-resume > h3 {
+  margin-bottom: 2.25rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.landing-resume__grid {
+  display: grid;
+  grid-template-columns: 0.75fr 1.2fr 1.3fr;
+  gap: 1rem;
+}
+
+.landing-resume__group {
+  padding: 1.5rem;
+  border: 1px solid #e1e8eb;
+  border-radius: 18px;
+  background: #fff;
+}
+
+.landing-resume__group h4 {
+  margin-bottom: 1.25rem;
+  color: var(--landing-blue);
+  font-size: 0.85rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.landing-resume__group ul {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.landing-resume__group li {
+  position: relative;
+  padding-left: 1rem;
+  color: var(--landing-muted);
+  font-size: 0.79rem;
+  line-height: 1.6;
+}
+
+.landing-resume__group li::before {
+  position: absolute;
+  top: 0.6rem;
+  left: 0;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--landing-gold);
+  content: "";
+}
+
 .landing-participation {
   padding: clamp(3rem, 6vw, 5rem) 0;
   background: #e7f2f5;
@@ -924,6 +995,28 @@
   transform: translateY(-3px) scale(1.03);
 }
 
+.menu-main .dropdown-menu {
+  padding: 0.5rem;
+  border: 1px solid rgba($brand-navy, 0.12);
+  border-radius: 12px;
+  background: var(--nav-gradient);
+  box-shadow: 0 14px 34px rgba($brand-navy, 0.12);
+}
+
+.menu-main .dropdown-item {
+  padding: 0.65rem 0.8rem;
+  border-radius: 8px;
+  color: $brand-navy;
+  font-size: 0.88rem;
+  font-weight: 550;
+}
+
+.menu-main .dropdown-item:hover,
+.menu-main .dropdown-item:focus {
+  background: rgba(255, 255, 255, 0.78);
+  color: #052c65;
+}
+
 .navbar-brand img {
   width: auto;
   height: 54px;
@@ -944,9 +1037,12 @@
   }
 }
 
-@keyframes landing-drift {
-  0%, 100% { transform: translateY(-2px); }
-  50% { transform: translateY(3px); }
+@media (min-width: 992px) and (hover: hover) {
+  .menu-main .nav-item.dropdown:hover > .dropdown-menu,
+  .menu-main .nav-item.dropdown:focus-within > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
 }
 
 @media (hover: hover) {
@@ -996,10 +1092,6 @@
     min-height: 510px;
   }
 
-  .landing-hero__scroll {
-    display: none;
-  }
-
   .landing-stat {
     padding: 1.25rem 1rem;
   }
@@ -1013,13 +1105,12 @@
     grid-column: 4 / span 6;
   }
 
-  .landing-territory__intro {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
   .landing-candidate__grid {
     gap: 3rem;
+  }
+
+  .landing-resume__grid {
+    grid-template-columns: 1fr;
   }
 
   .landing-achievement,

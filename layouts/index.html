@@ -50,10 +50,6 @@
         {{ end }}
       </div>
     </div>
-    <a class="landing-hero__scroll" href="#plan" aria-label="Desplazarse hasta el plan de trabajo">
-      <span>Desliza para conocer</span>
-      <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#arrow-down"></use></svg>
-    </a>
   </section>
 
   <section class="landing-stats" aria-label="El plan en cifras">
@@ -131,7 +127,6 @@
           <p class="landing-eyebrow landing-eyebrow--gold">{{ .Params.territory.eyebrow }}</p>
           <h2>{{ .Params.territory.title }}</h2>
         </div>
-        <p>{{ .Params.territory.summary }}</p>
       </div>
       {{ with resources.Get "images/landing/territory-placeholder.jpg" }}
         {{ $image := .Process "resize 1600x webp q82" }}
@@ -182,8 +177,7 @@
       </div>
       <div class="container landing-achievements">
         <header class="landing-achievements__header">
-          <p class="landing-eyebrow">{{ .achievements_title }}</p>
-          <h3>Experiencia que se traduce en resultados</h3>
+          <h3>{{ .achievements_title }}</h3>
           <p>{{ .achievements_summary }}</p>
         </header>
         <div class="landing-achievements__grid">
@@ -201,8 +195,48 @@
                   </li>
                 {{ end }}
               </ul>
+              {{ with .sources }}
+                <div class="landing-achievement__sources">
+                  <span>Fuentes:</span>
+                  {{ range . }}
+                    <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
+                      {{ .label }}
+                      <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#box-arrow-up-right"></use></svg>
+                    </a>
+                  {{ end }}
+                </div>
+              {{ end }}
             </article>
           {{ end }}
+        </div>
+      </div>
+      <div class="container landing-resume">
+        <h3>{{ .resume_title }}</h3>
+        <div class="landing-resume__grid">
+          <section class="landing-resume__group">
+            <h4>{{ .personal_title }}</h4>
+            <ul>
+              {{ range .personal }}
+                <li>{{ . }}</li>
+              {{ end }}
+            </ul>
+          </section>
+          <section class="landing-resume__group">
+            <h4>{{ .education_title }}</h4>
+            <ul>
+              {{ range .education }}
+                <li>{{ . }}</li>
+              {{ end }}
+            </ul>
+          </section>
+          <section class="landing-resume__group">
+            <h4>{{ .experience_title }}</h4>
+            <ul>
+              {{ range .experience }}
+                <li>{{ . }}</li>
+              {{ end }}
+            </ul>
+          </section>
         </div>
       </div>
     </section>

@@ -15,11 +15,11 @@ hero:
 
 stats:
   - value: "5"
-    label: "ejes para transformar Mejía"
-  - value: "8"
-    label: "parroquias, una sola visión"
-  - value: "4"
-    label: "años para actuar y rendir cuentas"
+    label: "ejes"
+  - value: "2"
+    label: "proyectos emblemáticos"
+  - value: "1"
+    label: "sola visión"
 
 plan:
   eyebrow: "Nuestro plan de trabajo"
@@ -40,7 +40,7 @@ pillars:
     icon: "cpu"
     title: "Un municipio inteligente, cercano y transparente"
     subtitle: "Innovación para servir mejor, con cercanía y transparencia."
-    description: "Daremos un nuevo salto tecnológico para que la inteligencia artificial mejore la atención y la gestión pública."
+    description: "Daremos un nuevo salto tecnológico para mejorar la atención y la gestión pública a través de herramientas de IA."
     points:
       - "Agentes de IA para orientar y agilizar trámites."
       - "Procesos digitales más simples, rápidos y transparentes."
@@ -92,7 +92,6 @@ outcomes:
 territory:
   eyebrow: "2 concejalías + 7 juntas parroquiales"
   title: "Un plan con raíces en cada territorio."
-  summary: "Las prioridades de las concejalías urbana y rural se complementan con las necesidades particulares de cada junta parroquial."
   image_alt: "Fotografía provisional de un paisaje de montañas; reemplazar por una fotografía del cantón Mejía"
   image_note: "Paisaje provisional · Reemplazar por una fotografía auténtica de Mejía"
 
@@ -141,34 +140,74 @@ candidate:
     - "Escuchar antes de decidir"
     - "Planificar antes de improvisar"
     - "Siempre rendir cuentas"
-  achievements_title: "Logros emblemáticos"
-  achievements_summary: "Resultados de su anterior gestión que muestran cómo la planificación y la innovación pueden transformar el municipio."
+  achievements_title: "Logros trascendentales"
+  achievements_summary: "Resultados que posicionaron a Mejía como referente nacional y demostraron que la innovación municipal puede transformar la vida de la comunidad."
   achievements:
     - icon: "recycle"
-      title: "Gestión de residuos sólidos"
+      title: "Referente nacional en gestión de residuos"
       points:
-        - "Primer lugar nacional en el Premio a las Mejores Prácticas Seccionales."
-        - "Experiencia documentada por la cooperación alemana GIZ como caso exitoso y replicable."
+        - "Mejía obtuvo el primer lugar nacional en el Premio a las Mejores Prácticas Seccionales por su manejo de residuos sólidos."
+        - "La cooperación alemana GIZ documentó el modelo como una experiencia exitosa y replicable para otros municipios del país."
+      sources:
+        - label: "AME: reconocimiento nacional"
+          url: "https://repositorio.ame.gob.ec/asamblea-regional-de-alcaldes-en-mejia/"
+        - label: "GIZ: caso de estudio"
+          url: "https://star-www.giz.de/fetch/4Q0vl4X000250g400D/giz2015-0260sp-gestion-integral-mejia.pdf#1#6#1"
     - icon: "award"
-      title: "Primer Cantón Libre de Cachinerías"
+      title: "Un hito único en el país"
       points:
-        - "Machachi recibió esta distinción como el primer cantón del país en lograrlo."
-        - "Reconocimiento formal mediante el Acuerdo Ministerial N.º 3776 en 2013."
+        - "Machachi hizo historia al ser declarado el Primer Cantón Libre de Cachinerías a Nivel Nacional."
+        - "El Estado ecuatoriano formalizó este precedente mediante el Acuerdo Ministerial N.º 3776, publicado en 2013."
+      sources:
+        - label: "Registro Oficial: Acuerdo Ministerial N.º 3776"
+          url: "http://esacc.corteconstitucional.gob.ec/storage/api/v1/10_DWL_FL/eyJjYXJwZXRhIjoicm8iLCJ1dWlkIjoiNWMxYTM4OTMtMDk0Mi00YWYzLTg3MjAtMmZhYTBmZTg0OWU3LnBkZiJ9#7#13#7"
     - icon: "camera-video"
-      title: "Sistema Ojos de Águila"
+      title: "Pioneros en videovigilancia municipal"
       points:
-        - "Proyecto pionero de videovigilancia para fortalecer la seguridad ciudadana."
-        - "Articulación con la Central de Atención Ciudadana."
+        - "Ojos de Águila convirtió a Mejía en un precursor de la videovigilancia cantonal y de la atención ciudadana coordinada."
+        - "El sistema sentó las bases de un modelo de monitoreo local que posteriormente se integró a plataformas nacionales."
+      sources:
+        - label: "AME: informe de rendición de cuentas"
+          url: "https://repositorio.ame.gob.ec/alcalde-de-mejia-rindio-cuentas-a-la-ciudadania-del-canton/"
     - icon: "map"
-      title: "Digitalización del catastro"
+      title: "La primera IDE del Ecuador"
       points:
-        - "Implementación de una Infraestructura de Datos Espaciales presentada como pionera en Ecuador."
-        - "Integración del catastro con el Registro de la Propiedad para avanzar hacia el folio real digital."
+        - "Mejía se adelantó al país con una Infraestructura de Datos Espaciales presentada oficialmente como la primera implementada en Ecuador."
+        - "La integración del catastro con el Registro de la Propiedad avanzó hacia un folio real digital único y de vanguardia."
+      sources:
+        - label: "Informe de Gestión 2012"
+          url: "https://studylib.es/doc/7568249#3"
+        - label: "AME: rendición de cuentas"
+          url: "https://repositorio.ame.gob.ec/alcalde-de-mejia-rindio-cuentas-a-la-ciudadania-del-canton/"
     - icon: "droplet"
-      title: "Creación de la EPAA Mejía"
+      title: "Una solución institucional para el agua"
       points:
-        - "Creación de la Empresa Pública Municipal de Agua Potable y Alcantarillado."
-        - "Formalización mediante ordenanza publicada en el Registro Oficial N.º 623 en 2012."
+        - "La creación de la EPAA Mejía dotó al cantón de una herramienta directa para gestionar, invertir y mejorar el servicio de agua potable y alcantarillado."
+        - "Su constitución quedó formalizada mediante ordenanza publicada en el Registro Oficial N.º 623 en 2012."
+      sources:
+        - label: "Ordenanza de constitución de la EPAA Mejía"
+          url: "https://municipiodemejia.gob.ec/uploads/ordenanzas/5ad14-23-06-2016-la-ordenanza-reformatoria-a-la-ordenanza-de-constitucion-agua-potable-y-alcantarillado-del-canton-mejia-ep..pdf#1#1#1"
+  resume_title: "Hoja de Vida"
+  personal_title: "Datos personales"
+  personal:
+    - "Nació en Machachi el 27 de agosto de 1960."
+  education_title: "Formación académica"
+  education:
+    - "Doctor en Jurisprudencia y Abogado de los Tribunales y Juzgados de la República, Universidad Central del Ecuador."
+    - "Licenciado en Ciencias Públicas y Sociales, Universidad Central del Ecuador."
+    - "Profesor de Educación Primaria, Instituto Normal Superior N.º 1 de Quito Jaime Roldós Aguilera."
+    - "Bachiller en Humanidades Modernas, Colegio Nacional Machachi."
+    - "Diplomado en Desarrollo de la Formación y la Gestión Empresarial, FUNDESEM Business School, Alicante, España."
+  experience_title: "Experiencia destacada"
+  experience:
+    - "Alcalde del cantón Mejía."
+    - "Vicepresidente y concejal de la Ilustre Municipalidad del cantón Mejía."
+    - "Consejero Provincial de Pichincha, alterno."
+    - "Profesor fundador de la Escuela Fiscal Mixta Mirabad y docente en varios planteles del cantón."
+    - "Secretario Auxiliar de la Comisaría Nacional del cantón Mejía."
+    - "Abogado en libre ejercicio y secretario del Núcleo de Abogados del cantón Mejía."
+    - "Radiodifusor y locutor, fundador y administrador de Radio José Mejía."
+    - "Fundador del Movimiento de Acción Ciudadana Fénix."
 
 participation:
   eyebrow: "Una comunidad que participa"
