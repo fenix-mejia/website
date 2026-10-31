@@ -1,17 +1,32 @@
 [[main]]
-name = "Plan de trabajo"
+identifier = "plan-trabajo"
+name = "Plan de Trabajo"
 url = "/#plan"
 weight = 10
 
 [[main]]
-name = "Territorio"
+parent = "plan-trabajo"
+name = "Cinco ejes"
+url = "/#plan"
+weight = 10
+
+[[main]]
+parent = "plan-trabajo"
+name = "Territorio y parroquias"
 url = "/#territorio"
 weight = 20
 
 [[main]]
-name = "Edwin Yánez"
+parent = "plan-trabajo"
+name = "Trayectoria y logros"
 url = "/#candidato"
 weight = 30
+
+[[main]]
+parent = "plan-trabajo"
+name = "Participación ciudadana"
+url = "/#participacion"
+weight = 40
 
 [[main]]
 name = "Sobre Nosotros"

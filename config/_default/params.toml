@@ -45,7 +45,7 @@ customMarkerAnchor = [16, 48] # The point of the icon that corresponds to the ma
 customMarkerPopupAnchor = [0, -48] # The point from which the popup should open, relative to the anchor
 
 [whatsapp]
-number = ""
+number = "593981511259"
 message = "Hola, quiero compartir una propuesta para Mejía:"
 
 [analytics]

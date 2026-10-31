@@ -48,10 +48,6 @@
             <figcaption>Fotografía provisional</figcaption>
           </figure>
         {{ end }}
-        <div class="landing-hero__period">
-          <span aria-hidden="true"></span>
-          {{ $hero.period }}
-        </div>
       </div>
     </div>
     <a class="landing-hero__scroll" href="#plan" aria-label="Desplazarse hasta el plan de trabajo">
@@ -106,7 +102,7 @@
     </div>
   </section>
 
-  {{ with .Params.outcomes }}
+  {{ if .Params.outcomes.enabled }}
     <section class="landing-section landing-outcomes">
       <div class="container">
         <header class="landing-section__header landing-section__header--compact">
@@ -146,10 +142,11 @@
       {{ end }}
       <div class="landing-parishes">
         {{ range .Params.parishes }}
-          <article class="landing-parish">
+          <article class="landing-parish{{ if .council }} landing-parish--council{{ end }}">
             <span class="landing-parish__marker" aria-hidden="true">
-              <svg><use href="/icons/bootstrap-icons.svg#geo-alt"></use></svg>
+              <svg><use href="/icons/bootstrap-icons.svg#{{ default "geo-alt" .icon }}"></use></svg>
             </span>
+            <p class="landing-parish__label">{{ .label }}</p>
             <h3>{{ .name }}</h3>
             <p>{{ .priority }}</p>
           </article>
@@ -170,7 +167,6 @@
           </div>
         </div>
         <div class="landing-candidate__story">
-          <p class="landing-placeholder-note">{{ .note }}</p>
           {{ range .paragraphs }}
             <p>{{ . }}</p>
           {{ end }}
@@ -184,17 +180,42 @@
           </ul>
         </div>
       </div>
+      <div class="container landing-achievements">
+        <header class="landing-achievements__header">
+          <p class="landing-eyebrow">{{ .achievements_title }}</p>
+          <h3>Experiencia que se traduce en resultados</h3>
+          <p>{{ .achievements_summary }}</p>
+        </header>
+        <div class="landing-achievements__grid">
+          {{ range .achievements }}
+            <article class="landing-achievement">
+              <span class="landing-icon" aria-hidden="true">
+                <svg><use href="/icons/bootstrap-icons.svg#{{ .icon }}"></use></svg>
+              </span>
+              <h4>{{ .title }}</h4>
+              <ul>
+                {{ range .points }}
+                  <li>
+                    <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#check2"></use></svg>
+                    <span>{{ . }}</span>
+                  </li>
+                {{ end }}
+              </ul>
+            </article>
+          {{ end }}
+        </div>
+      </div>
     </section>
   {{ end }}
 
   {{ with .Params.participation }}
-    <section class="landing-participation">
+    <section class="landing-participation" id="participacion">
       <div class="container landing-participation__inner">
         <div class="landing-participation__seal" aria-hidden="true">
           <svg><use href="/icons/bootstrap-icons.svg#chat-square-text"></use></svg>
         </div>
         <div>
-          <p class="landing-eyebrow landing-eyebrow--gold">{{ .eyebrow }}</p>
+          <p class="landing-eyebrow">{{ .eyebrow }}</p>
           <h2>{{ .title }}</h2>
           <p>{{ .text }}</p>
         </div>

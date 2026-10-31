@@ -1,9 +1,3 @@
-#plan,
-#territorio,
-#candidato {
-  scroll-margin-top: 70px;
-}
-
 .landing-page {
   --landing-ink: #172f4d;
   --landing-navy: #1f355c;
@@ -330,33 +324,6 @@
   white-space: nowrap;
 }
 
-.landing-hero__period {
-  position: absolute;
-  z-index: 2;
-  right: -0.5rem;
-  bottom: 2.25rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.8rem 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.7);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.9);
-  box-shadow: 0 14px 35px rgba(23, 47, 77, 0.13);
-  color: var(--landing-ink);
-  font-size: 0.75rem;
-  font-weight: 750;
-  backdrop-filter: blur(12px);
-}
-
-.landing-hero__period span {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--landing-gold);
-  box-shadow: 0 0 0 4px rgba(224, 177, 39, 0.18);
-}
-
 .landing-hero__scroll {
   position: absolute;
   bottom: 1.25rem;
@@ -387,8 +354,10 @@
 
 .landing-stats__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1px;
   margin: 0;
+  background: rgba(255, 255, 255, 0.13);
 }
 
 .landing-stat {
@@ -398,10 +367,7 @@
   justify-content: center;
   gap: 1rem;
   padding: 1.5rem 2rem;
-}
-
-.landing-stat + .landing-stat {
-  border-left: 1px solid rgba(255, 255, 255, 0.13);
+  background: var(--landing-navy);
 }
 
 .landing-stat dt {
@@ -419,6 +385,7 @@
   font-family: Georgia, serif;
   font-size: 3.25rem;
   line-height: 1;
+  order: -1;
 }
 
 .landing-plan {
@@ -552,12 +519,12 @@
   border-color: rgba(255, 255, 255, 0.15);
 }
 
-.landing-policy-card--people {
+.landing-policy-card--cpu {
   border-color: #ead99c;
   background: #fbf4dc;
 }
 
-.landing-policy-card--people .landing-icon {
+.landing-policy-card--cpu .landing-icon {
   background: #f0dfa7;
   color: #6e5204;
 }
@@ -660,7 +627,7 @@
 
 .landing-parishes {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -669,7 +636,7 @@
 }
 
 .landing-parish {
-  min-height: 180px;
+  min-height: 190px;
   padding: 1.5rem;
   background: #1b3858;
 }
@@ -683,7 +650,7 @@
 .landing-parish h3 {
   margin-bottom: 0.6rem;
   color: #fff;
-  font-size: 0.98rem;
+  font-size: 1.05rem;
   font-weight: 700;
 }
 
@@ -692,6 +659,29 @@
   color: #bdcedc;
   font-size: 0.78rem;
   line-height: 1.55;
+}
+
+.landing-parish p.landing-parish__label {
+  margin-bottom: 0.45rem;
+  color: var(--landing-gold-light);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.landing-parish--council {
+  background: #f3e3aa;
+}
+
+.landing-parish--council .landing-parish__marker,
+.landing-parish--council p.landing-parish__label {
+  color: #715608;
+}
+
+.landing-parish--council h3,
+.landing-parish--council p {
+  color: var(--landing-ink);
 }
 
 .landing-candidate {
@@ -780,6 +770,88 @@
   color: #8c6b0c;
 }
 
+.landing-achievements {
+  margin-top: clamp(4rem, 8vw, 7rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  border-top: 1px solid #e1e8eb;
+}
+
+.landing-achievements__header {
+  max-width: 700px;
+  margin-bottom: 2.5rem;
+}
+
+.landing-achievements__header h3 {
+  margin-bottom: 0.85rem;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.landing-achievements__header > p:last-child {
+  margin: 0;
+  color: var(--landing-muted);
+  line-height: 1.75;
+}
+
+.landing-achievements__grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.landing-achievement {
+  grid-column: span 2;
+  padding: 1.5rem;
+  border: 1px solid #e1e8eb;
+  border-radius: 18px;
+  background: var(--landing-mist);
+}
+
+.landing-achievement:nth-child(n+4) {
+  grid-column: span 3;
+}
+
+.landing-achievement .landing-icon {
+  margin-bottom: 1.25rem;
+  background: #fff;
+}
+
+.landing-achievement h4 {
+  margin-bottom: 1rem;
+  color: var(--landing-ink);
+  font-size: 1.05rem;
+  font-weight: 750;
+  line-height: 1.35;
+}
+
+.landing-achievement ul {
+  display: grid;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.landing-achievement li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  color: var(--landing-muted);
+  font-size: 0.79rem;
+  line-height: 1.55;
+}
+
+.landing-achievement li svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  flex: 0 0 auto;
+  margin-top: 0.15rem;
+  color: #8c6b0c;
+}
+
 .landing-participation {
   padding: clamp(3rem, 6vw, 5rem) 0;
   background: #e7f2f5;
@@ -858,12 +930,7 @@
 }
 
 .footer .footer-logo {
-  height: 58px !important;
-  padding: 4px;
-  border-radius: 8px;
-  background: #fff;
-  filter: none !important;
-  opacity: 1 !important;
+  height: 54px !important;
 }
 
 @keyframes landing-rise {
@@ -896,10 +963,6 @@
 @media (max-width: 1199.98px) {
   .landing-hero__container {
     gap: 2rem;
-  }
-
-  .landing-hero__period {
-    right: 0;
   }
 
   .landing-parishes {
@@ -958,6 +1021,11 @@
   .landing-candidate__grid {
     gap: 3rem;
   }
+
+  .landing-achievement,
+  .landing-achievement:nth-child(n+4) {
+    grid-column: span 3;
+  }
 }
 
 @media (max-width: 767.98px) {
@@ -999,11 +1067,6 @@
     min-height: 94px;
     justify-content: flex-start;
     padding: 1rem 1.5rem;
-  }
-
-  .landing-stat + .landing-stat {
-    border-top: 1px solid rgba(255, 255, 255, 0.13);
-    border-left: 0;
   }
 
   .landing-stat dt {
@@ -1049,6 +1112,11 @@
   .landing-candidate__grid {
     grid-template-columns: 1fr;
   }
+
+  .landing-achievement,
+  .landing-achievement:nth-child(n+4) {
+    grid-column: 1 / -1;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -1076,11 +1144,6 @@
     width: 78%;
     max-width: 320px;
     border-width: 6px;
-  }
-
-  .landing-hero__period {
-    bottom: 1.25rem;
-    font-size: 0.68rem;
   }
 
   .landing-parishes {
