@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="{{ .Language.LanguageCode | default "es-EC" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="{{ .Description }}">
+  <title>{{ .Title }} | Movimiento Fénix</title>
+  <link rel="icon" type="image/svg+xml" href="{{ `favicon.svg` | absURL }}">
+  <link rel="stylesheet" href="{{ `vendor/revealjs/reveal.css` | relURL }}">
+  <link rel="stylesheet" href="{{ `vendor/revealjs/presentations.css` | relURL }}">
+</head>
+<body class="presentation-page">
+  <header class="presentation-header">
+    <a class="presentation-header__back" href="{{ .Site.Home.RelPermalink }}#propuestas" aria-label="Volver a las propuestas emblemáticas">
+      <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16Z"/><path d="M11.354 4.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 .708.708l6-6a.5.5 0 0 0 0-.708Z"/><path d="M4.646 5.354a.5.5 0 1 0 .708-.708L3.207 2.5l2.147-2.146a.5.5 0 1 0-.708-.708L1.293 3a.5.5 0 0 0 0 .708l3.353 3.353c.183.183.465.217.707.105Z"/></svg>
+      <span>Propuestas</span>
+    </a>
+    <div class="presentation-header__title">
+      <span>Movimiento Fénix</span>
+      <strong>{{ .Title }}</strong>
+    </div>
+    {{ $slides := resources.Match .Params.slides_path }}
+    <span class="presentation-header__count">{{ len $slides }} diapositivas</span>
+  </header>
+
+  <main class="reveal" aria-label="Presentación: {{ .Title }}">
+    <div class="slides">
+      {{ $count := len $slides }}
+      {{ range $index, $resource := $slides }}
+        {{ $image := $resource.Process "resize 1376x webp q85" }}
+        <section>
+          <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ printf "%s, diapositiva %d de %d" $.Title (add $index 1) $count }}"{{ if eq $index 0 }} fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
+        </section>
+      {{ end }}
+    </div>
+  </main>
+
+  <noscript>
+    <p class="presentation-noscript">Activa JavaScript para navegar por esta presentación.</p>
+  </noscript>
+  <script src="{{ `vendor/revealjs/reveal.js` | relURL }}"></script>
+  <script>
+    Reveal.initialize({
+      width: 1376,
+      height: 768,
+      margin: 0.02,
+      minScale: 0.05,
+      maxScale: 1.4,
+      center: false,
+      controls: true,
+      controlsTutorial: true,
+      progress: true,
+      slideNumber: 'c/t',
+      hash: true,
+      keyboard: true,
+      touch: true,
+      overview: true,
+      transition: 'fade',
+      transitionSpeed: 'fast'
+    });
+  </script>
+</body>
+</html>

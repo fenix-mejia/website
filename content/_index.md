@@ -89,6 +89,19 @@ outcomes:
       title: "Una voz para cada comunidad"
       text: "Participación organizada, presupuestos participativos e informes públicos para decidir y evaluar juntos."
 
+proposals:
+  eyebrow: "Dos proyectos para transformar Mejía"
+  title: "Propuestas Emblemáticas"
+  items:
+    - title: "Chagrahuasi: El Corazón de Mejía"
+      image: "presentaciones/chagrahuasi/slides/01.png"
+      image_alt: "Portada de la presentación Chagrahuasi: El Corazón de Mejía"
+      url: "presentaciones/chagrahuasi/"
+    - title: "Ruta de los 9 Volcanes en 9 días"
+      image: "presentaciones/ruta-9-volcanes/slides/01.png"
+      image_alt: "Portada de la presentación Ruta de los 9 Volcanes en 9 días"
+      url: "presentaciones/ruta-9-volcanes/"
+
 territory:
   eyebrow: "2 concejalías + 7 juntas parroquiales"
   title: "Un plan con raíces en cada territorio."

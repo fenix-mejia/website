@@ -12,6 +12,12 @@ weight = 10
 
 [[main]]
 parent = "plan-trabajo"
+name = "Propuestas Emblemáticas"
+url = "/#propuestas"
+weight = 15
+
+[[main]]
+parent = "plan-trabajo"
 name = "Territorio y parroquias"
 url = "/#territorio"
 weight = 20

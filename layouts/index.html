@@ -119,6 +119,35 @@
     </section>
   {{ end }}
 
+  {{ with .Params.proposals }}
+    <section class="landing-section landing-proposals" id="propuestas">
+      <div class="container">
+        <header class="landing-section__header">
+          <p class="landing-eyebrow">{{ .eyebrow }}</p>
+          <h2>{{ .title }}</h2>
+        </header>
+        <div class="landing-proposals__grid">
+          {{ range .items }}
+            <a class="landing-proposal" href="{{ .url | relURL }}" target="_blank" rel="noopener noreferrer" aria-label="Abrir presentación {{ .title }} en una nueva pestaña">
+              <div class="landing-proposal__image">
+                {{ $alt := .image_alt }}
+                {{ with resources.Get .image }}
+                  {{ $image := .Process "resize 1376x webp q85" }}
+                  <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}">
+                {{ end }}
+                <span class="landing-proposal__action">
+                  Conocer más
+                  <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#box-arrow-up-right"></use></svg>
+                </span>
+              </div>
+              <h3>{{ .title }}</h3>
+            </a>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+  {{ end }}
+
   <section class="landing-section landing-territory" id="territorio">
     <div class="container">
       <div class="landing-territory__intro">

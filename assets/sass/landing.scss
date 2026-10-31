@@ -526,6 +526,102 @@
   line-height: 1.75;
 }
 
+.landing-proposals {
+  background: var(--landing-mist);
+}
+
+.landing-proposals__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.landing-proposal {
+  display: block;
+  color: var(--landing-ink);
+  text-decoration: none;
+}
+
+.landing-proposal__image {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(31, 53, 92, 0.1);
+  border-radius: 22px;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(23, 47, 77, 0.1);
+  isolation: isolate;
+}
+
+.landing-proposal__image::after {
+  position: absolute;
+  inset: 0;
+  background: rgba(23, 47, 77, 0.58);
+  content: "";
+  opacity: 0;
+  transition: opacity 220ms ease;
+}
+
+.landing-proposal__image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 350ms ease, filter 220ms ease;
+}
+
+.landing-proposal__action {
+  position: absolute;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  background: var(--landing-gold);
+  box-shadow: 0 12px 28px rgba(23, 47, 77, 0.2);
+  color: #2a260f;
+  font-size: 0.88rem;
+  font-weight: 750;
+  opacity: 0;
+  transform: translate(-50%, -40%);
+  transition: opacity 220ms ease, transform 220ms ease;
+  white-space: nowrap;
+}
+
+.landing-proposal h3 {
+  margin: 1.4rem 0 0;
+  color: var(--landing-ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  font-size: clamp(1.35rem, 2.5vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.landing-proposal:hover .landing-proposal__image::after,
+.landing-proposal:focus-visible .landing-proposal__image::after {
+  opacity: 1;
+}
+
+.landing-proposal:hover .landing-proposal__action,
+.landing-proposal:focus-visible .landing-proposal__action {
+  opacity: 1;
+  transform: translate(-50%, -50%);
+}
+
+.landing-proposal:hover .landing-proposal__image img,
+.landing-proposal:focus-visible .landing-proposal__image img {
+  filter: saturate(0.75);
+  transform: scale(1.025);
+}
+
+.landing-proposal:focus-visible {
+  outline: 3px solid var(--landing-gold);
+  outline-offset: 6px;
+}
+
 .landing-territory {
   position: relative;
   background: #172f4d;
@@ -1161,6 +1257,10 @@
 }
 
 @media (max-width: 767.98px) {
+  .landing-proposals__grid {
+    grid-template-columns: 1fr;
+  }
+
   .landing-hero {
     padding-top: 3.5rem;
   }
