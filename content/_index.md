@@ -188,9 +188,6 @@ candidate:
         - label: "Ordenanza de constitución de la EPAA Mejía"
           url: "https://municipiodemejia.gob.ec/uploads/ordenanzas/5ad14-23-06-2016-la-ordenanza-reformatoria-a-la-ordenanza-de-constitucion-agua-potable-y-alcantarillado-del-canton-mejia-ep..pdf#1#1#1"
   resume_title: "Hoja de Vida"
-  personal_title: "Datos personales"
-  personal:
-    - "Nació en Machachi el 27 de agosto de 1960."
   education_title: "Formación académica"
   education:
     - "Doctor en Jurisprudencia y Abogado de los Tribunales y Juzgados de la República, Universidad Central del Ecuador."
