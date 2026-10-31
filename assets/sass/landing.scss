@@ -291,16 +291,12 @@
 .landing-portrait {
   position: absolute;
   z-index: 1;
-  bottom: 0;
+  bottom: -0.75rem;
   left: 50%;
-  width: 78%;
-  max-width: 430px;
+  width: 112%;
+  max-width: 660px;
   margin: 0;
-  overflow: hidden;
-  border: 8px solid rgba(255, 255, 255, 0.55);
-  border-radius: 230px 230px 28px 28px;
-  background: #a9bdc5;
-  box-shadow: 0 28px 70px rgba(23, 47, 77, 0.24);
+  pointer-events: none;
   transform: translateX(-50%);
 }
 
@@ -308,20 +304,7 @@
   display: block;
   width: 100%;
   height: auto;
-}
-
-.landing-portrait figcaption {
-  position: absolute;
-  top: 1rem;
-  left: 50%;
-  padding: 0.35rem 0.65rem;
-  border-radius: 999px;
-  background: rgba(23, 47, 77, 0.76);
-  color: #fff;
-  font-size: 0.66rem;
-  letter-spacing: 0.04em;
-  transform: translateX(-50%);
-  white-space: nowrap;
+  filter: drop-shadow(0 24px 32px rgba(23, 47, 77, 0.18));
 }
 
 .landing-stats {
@@ -604,19 +587,30 @@
 }
 
 .landing-parish {
+  display: grid;
+  grid-template-columns: 96px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: center;
   min-height: 190px;
-  padding: 1.5rem;
+  padding: 1.15rem;
   background: #1b3858;
 }
 
-.landing-parish__marker {
+.landing-parish__portrait {
   display: block;
-  margin-bottom: 1.25rem;
-  color: var(--landing-gold);
+  width: 96px;
+  height: 120px;
+  border-radius: 12px;
+  background: #fff;
+  object-fit: cover;
+}
+
+.landing-parish__body {
+  min-width: 0;
 }
 
 .landing-parish h3 {
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.25rem;
   color: #fff;
   font-size: 1.05rem;
   font-weight: 700;
@@ -625,30 +619,37 @@
 .landing-parish p {
   margin: 0;
   color: #bdcedc;
-  font-size: 0.78rem;
+  font-size: 0.76rem;
   line-height: 1.55;
 }
 
 .landing-parish p.landing-parish__label {
   margin-bottom: 0.45rem;
   color: var(--landing-gold-light);
-  font-size: 0.64rem;
+  font-size: 0.61rem;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
+}
+
+.landing-parish p.landing-parish__candidate {
+  margin-bottom: 0.45rem;
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 750;
 }
 
 .landing-parish--council {
   background: #f3e3aa;
 }
 
-.landing-parish--council .landing-parish__marker,
 .landing-parish--council p.landing-parish__label {
   color: #715608;
 }
 
 .landing-parish--council h3,
-.landing-parish--council p {
+.landing-parish--council p,
+.landing-parish--council p.landing-parish__candidate {
   color: var(--landing-ink);
 }
 
@@ -874,6 +875,44 @@
   font-weight: 600;
   letter-spacing: -0.04em;
   line-height: 1.1;
+}
+
+.landing-resume__identity {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+  text-align: left;
+}
+
+.landing-resume__identity img {
+  display: block;
+  width: 112px;
+  height: 150px;
+  border: 1px solid #e1e8eb;
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(23, 47, 77, 0.08);
+  object-fit: cover;
+}
+
+.landing-resume__identity div {
+  display: grid;
+  gap: 0.4rem;
+  max-width: 300px;
+}
+
+.landing-resume__identity strong {
+  color: var(--landing-blue);
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.landing-resume__identity span {
+  color: var(--landing-muted);
+  font-size: 0.78rem;
+  line-height: 1.55;
 }
 
 .landing-resume__grid {
@@ -1234,9 +1273,8 @@
   }
 
   .landing-portrait {
-    width: 78%;
-    max-width: 320px;
-    border-width: 6px;
+    width: 112%;
+    max-width: 410px;
   }
 
   .landing-parishes {

@@ -41,11 +41,10 @@
           <path d="M0 220L108 104L174 170L280 44L358 150L431 92L552 202L621 138L700 220V260H0Z"></path>
           <path d="M0 238L138 168L220 214L340 126L433 206L527 156L700 232V260H0Z"></path>
         </svg>
-        {{ with resources.Get "images/landing/candidate-placeholder.jpg" }}
-          {{ $image := .Process "fill 800x1000 Center webp q82" }}
+        {{ with resources.Get "images/landing/edwin-yanez-hero.png" }}
+          {{ $image := .Process "resize 1100x webp q85" }}
           <figure class="landing-portrait">
             <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $hero.image_alt }}" fetchpriority="high">
-            <figcaption>Fotografía provisional</figcaption>
           </figure>
         {{ end }}
       </div>
@@ -138,12 +137,17 @@
       <div class="landing-parishes">
         {{ range .Params.parishes }}
           <article class="landing-parish{{ if .council }} landing-parish--council{{ end }}">
-            <span class="landing-parish__marker" aria-hidden="true">
-              <svg><use href="/icons/bootstrap-icons.svg#{{ default "geo-alt" .icon }}"></use></svg>
-            </span>
-            <p class="landing-parish__label">{{ .label }}</p>
-            <h3>{{ .name }}</h3>
-            <p>{{ .priority }}</p>
+            {{ $alt := .photo_alt }}
+            {{ with resources.Get .photo }}
+              {{ $image := .Process "fill 240x300 Center webp q82" }}
+              <img class="landing-parish__portrait" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}">
+            {{ end }}
+            <div class="landing-parish__body">
+              <p class="landing-parish__label">{{ .label }}</p>
+              <h3>{{ .name }}</h3>
+              <p class="landing-parish__candidate">{{ .candidate }}</p>
+              <p>{{ .priority }}</p>
+            </div>
           </article>
         {{ end }}
       </div>
@@ -212,6 +216,17 @@
       </div>
       <div class="container landing-resume">
         <h3>{{ .resume_title }}</h3>
+        <div class="landing-resume__identity">
+          {{ $candidateName := .name }}
+          {{ with resources.Get "images/landing/edwin-yanez-cv.jpg" }}
+            {{ $image := .Process "fill 240x320 Center webp q85" }}
+            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Retrato de {{ $candidateName }}">
+          {{ end }}
+          <div>
+            <strong>{{ .name }}</strong>
+            <span>{{ .role }}</span>
+          </div>
+        </div>
         <div class="landing-resume__grid">
           <section class="landing-resume__group">
             <h4>{{ .education_title }}</h4>
