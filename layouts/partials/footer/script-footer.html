@@ -29,6 +29,11 @@
   <script src="{{ $autohideNavbar.RelPermalink }}"></script>
 {{ end }}
 
+{{ $dropdownNavbar := resources.Get "js/dropdown-navbar.js" }}
+{{ if $dropdownNavbar }}
+  <script src="{{ $dropdownNavbar.RelPermalink }}" defer></script>
+{{ end }}
+
 {{ $accordionToggle := resources.Get "js/accordion-toggle.js" }}
 {{ if $accordionToggle }}
   {{ if ne (hugo.Environment) "development" }}

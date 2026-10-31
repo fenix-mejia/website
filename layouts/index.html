@@ -196,7 +196,7 @@
         </div>
         <div class="landing-candidate__story">
           {{ range .paragraphs }}
-            <p>{{ . }}</p>
+            <p>{{ . | markdownify }}</p>
           {{ end }}
           <ul>
             {{ range .values }}

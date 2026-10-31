@@ -173,7 +173,7 @@ candidate:
   title: "La confianza se reconstruye con hechos."
   paragraphs:
     - "Profesional con formación en educación, derecho y gestión pública. Ha sido docente, abogado, concejal, vicepresidente municipal y alcalde del cantón Mejía."
-    - "Su gestión se caracterizó por realizar obras trascendentales sin endeudamiento, con innovación y participación ciudadana como bases de la administración pública."
+    - "Su gestión se caracterizó por realizar obras trascendentales con **_cero deuda_** y conseguir **_reconocimientos nacionales e internacionales_**, con innovación y participación ciudadana como bases de la administración pública."
   values:
     - "Escuchar antes de decidir"
     - "Planificar antes de improvisar"
