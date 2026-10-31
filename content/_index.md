@@ -140,7 +140,7 @@ candidate:
     - "Escuchar antes de decidir"
     - "Planificar antes de improvisar"
     - "Siempre rendir cuentas"
-  achievements_title: "Logros trascendentales"
+  achievements_title: "Logros Trascendentales"
   achievements_summary: "Resultados que posicionaron a Mejía como referente nacional y demostraron que la innovación municipal puede transformar la vida de la comunidad."
   achievements:
     - icon: "recycle"
@@ -172,7 +172,7 @@ candidate:
     - icon: "map"
       title: "La primera IDE del Ecuador"
       points:
-        - "Mejía se adelantó al país con una Infraestructura de Datos Espaciales presentada oficialmente como la primera implementada en Ecuador."
+        - "Mejía se adelantó al país con una Infraestructura de Datos Espaciales (IDE), presentada oficialmente como la primera implementada en Ecuador."
         - "La integración del catastro con el Registro de la Propiedad avanzó hacia un folio real digital único y de vanguardia."
       sources:
         - label: "Informe de Gestión 2012"
