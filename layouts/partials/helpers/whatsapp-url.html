@@ -1,0 +1,5 @@
+{{ $whatsappURL := printf "https://wa.me/?text=%s" (urlquery .Site.Params.whatsapp.message) }}
+{{ with .Site.Params.whatsapp.number }}
+  {{ $whatsappURL = printf "https://wa.me/%s?text=%s" . (urlquery $.Site.Params.whatsapp.message) }}
+{{ end }}
+{{ return $whatsappURL }}

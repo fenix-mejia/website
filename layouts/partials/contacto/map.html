@@ -23,7 +23,7 @@
 
         {{ if and .Site.Params.enableCustomMarker .Site.Params.customMarkerPath }}
             const customIcon = L.icon({
-                iconUrl: '{{ .Site.Params.customMarkerPath | absURL }}',
+                iconUrl: '{{ .Site.Params.customMarkerPath | relURL }}',
                 iconSize:     {{ .Site.Params.customMarkerSize | default "[38, 95]" }},
                 iconAnchor:   {{ .Site.Params.customMarkerAnchor | default "[22, 94]" }},
                 popupAnchor:  {{ .Site.Params.customMarkerPopupAnchor | default "[-3, -76]" }}
