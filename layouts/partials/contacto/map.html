@@ -15,15 +15,15 @@
 
         const map = L.map('osm-map').setView([lat, lng], zoom);
 
-        L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
-            subdomains: 'abcd'
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            subdomains: 'abc'
         }).addTo(map);
 
         {{ if and .Site.Params.enableCustomMarker .Site.Params.customMarkerPath }}
             const customIcon = L.icon({
-                iconUrl: '{{ .Site.Params.customMarkerPath | absURL }}',
+                iconUrl: '{{ .Site.Params.customMarkerPath | relURL }}',
                 iconSize:     {{ .Site.Params.customMarkerSize | default "[38, 95]" }},
                 iconAnchor:   {{ .Site.Params.customMarkerAnchor | default "[22, 94]" }},
                 popupAnchor:  {{ .Site.Params.customMarkerPopupAnchor | default "[-3, -76]" }}

@@ -1,9 +1,6 @@
 {{ define "main" }}
 {{ $hero := .Params.hero }}
-{{ $whatsappURL := printf "https://wa.me/?text=%s" (urlquery .Site.Params.whatsapp.message) }}
-{{ with .Site.Params.whatsapp.number }}
-  {{ $whatsappURL = printf "https://wa.me/%s?text=%s" . (urlquery $.Site.Params.whatsapp.message) }}
-{{ end }}
+{{ $whatsappURL := partial "helpers/whatsapp-url.html" . }}
 
 <main class="landing-page">
   <section class="landing-hero" id="inicio">
@@ -298,5 +295,4 @@
   {{ end }}
 </main>
 
-{{ partial "landing/whatsapp.html" . }}
 {{ end }}

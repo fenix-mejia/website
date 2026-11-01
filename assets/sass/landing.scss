@@ -135,6 +135,10 @@
   color: var(--landing-blue);
 }
 
+.contacto-whatsapp {
+  margin-top: 1.5rem;
+}
+
 .landing-button--gold {
   background: var(--landing-gold);
   box-shadow: 0 12px 28px rgba(92, 68, 4, 0.16);
@@ -146,6 +150,26 @@
 .landing-button--gold:focus {
   background: #edbe35;
   color: #211d08;
+}
+
+.landing-button--whatsapp {
+  background: #188d59;
+  box-shadow: 0 12px 28px rgba(16, 74, 48, 0.24);
+  color: #fff;
+  white-space: nowrap;
+}
+
+.landing-button--whatsapp svg {
+  display: block;
+  width: 1.25rem;
+  height: 1.25rem;
+  fill: currentColor;
+}
+
+.landing-button--whatsapp:hover,
+.landing-button--whatsapp:focus {
+  background: #107347;
+  color: #fff;
 }
 
 .landing-button:focus-visible,
