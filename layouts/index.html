@@ -16,10 +16,10 @@
         <div class="landing-hero__actions">
           <a class="landing-button landing-button--primary" href="#plan">
             {{ $hero.primary_action }}
-            <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#arrow-down"></use></svg>
+            <svg aria-hidden="true"><use href="/icons/fenix-icons.svg#arrow-down"></use></svg>
           </a>
           <a class="landing-button landing-button--quiet" href="{{ $whatsappURL }}" target="_blank" rel="noopener noreferrer">
-            <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#whatsapp"></use></svg>
+            <svg aria-hidden="true"><use href="/icons/fenix-icons.svg#whatsapp"></use></svg>
             {{ $hero.secondary_action }}
           </a>
         </div>
@@ -71,7 +71,7 @@
             <div class="landing-policy-card__top">
               <span class="landing-policy-card__number">{{ .number }}</span>
               <span class="landing-icon" aria-hidden="true">
-                <svg><use href="/icons/bootstrap-icons.svg#{{ .icon }}"></use></svg>
+                <svg><use href="/icons/fenix-icons.svg#{{ .icon }}"></use></svg>
               </span>
             </div>
             <h3>{{ .title }}</h3>
@@ -80,7 +80,7 @@
             <ul>
               {{ range .points }}
                 <li>
-                  <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#check2"></use></svg>
+                  <svg aria-hidden="true"><use href="/icons/fenix-icons.svg#check2"></use></svg>
                   <span>{{ . }}</span>
                 </li>
               {{ end }}
@@ -102,7 +102,7 @@
           {{ range .items }}
             <article class="landing-outcome">
               <span class="landing-icon" aria-hidden="true">
-                <svg><use href="/icons/bootstrap-icons.svg#{{ .icon }}"></use></svg>
+                <svg><use href="/icons/fenix-icons.svg#{{ .icon }}"></use></svg>
               </span>
               <h3>{{ .title }}</h3>
               <p>{{ .text }}</p>
@@ -126,12 +126,13 @@
               <div class="landing-proposal__image">
                 {{ $alt := .image_alt }}
                 {{ with resources.Get .image }}
+                  {{ $small := .Process "resize 640x webp q82" }}
                   {{ $image := .Process "resize 1376x webp q85" }}
-                  <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}">
+                  <img src="{{ $image.RelPermalink }}" srcset="{{ $small.RelPermalink }} 640w, {{ $image.RelPermalink }} 1376w" sizes="(max-width: 767.98px) 100vw, 50vw" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async">
                 {{ end }}
                 <span class="landing-proposal__action">
                   Conocer más
-                  <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#box-arrow-up-right"></use></svg>
+                  <svg aria-hidden="true"><use href="/icons/fenix-icons.svg#box-arrow-up-right"></use></svg>
                 </span>
               </div>
               <h3>{{ .title }}</h3>
@@ -151,9 +152,11 @@
         </div>
       </div>
       {{ with resources.Get .Params.territory.image }}
+        {{ $small := .Process "resize 640x webp q78" }}
+        {{ $medium := .Process "resize 960x webp q80" }}
         {{ $image := .Process "resize 1600x webp q82" }}
         <figure class="landing-territory__photo">
-          <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Params.territory.image_alt }}" loading="lazy">
+          <img src="{{ $image.RelPermalink }}" srcset="{{ $small.RelPermalink }} 640w, {{ $medium.RelPermalink }} 960w, {{ $image.RelPermalink }} 1600w" sizes="(max-width: 1320px) 100vw, 1320px" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Params.territory.image_alt }}" loading="lazy" decoding="async">
           <figcaption>
             {{ $.Params.territory.image_note }}
             · Foto: <a href="{{ $.Params.territory.image_credit_url }}" rel="noopener" target="_blank">{{ $.Params.territory.image_credit_name }}</a>,
@@ -169,7 +172,7 @@
             {{ $alt := .photo_alt }}
             {{ with resources.Get .photo }}
               {{ $image := .Process "fill 240x300 Center webp q82" }}
-              <img class="landing-parish__portrait" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}">
+              <img class="landing-parish__portrait" src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async">
             {{ end }}
             <div class="landing-parish__body">
               <p class="landing-parish__label">{{ .label }}</p>
@@ -209,7 +212,7 @@
           <ul>
             {{ range .values }}
               <li>
-                <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#check-circle"></use></svg>
+                <svg aria-hidden="true"><use href="/icons/fenix-icons.svg#check-circle"></use></svg>
                 {{ . }}
               </li>
             {{ end }}
@@ -228,7 +231,7 @@
               {{ with resources.Get .image }}
                 {{ $image := .Process "fill 960x600 Center webp q84" }}
                 <figure class="landing-achievement__media">
-                  <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $achievement.image_alt }}" loading="lazy">
+                  <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $achievement.image_alt }}" loading="lazy" decoding="async">
                   <figcaption>
                     Fuente de la imagen:
                     <a href="{{ $achievement.image_credit_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $achievement.image_credit }} (se abre en una nueva pestaña)">
@@ -238,13 +241,13 @@
                 </figure>
               {{ end }}
               <span class="landing-icon" aria-hidden="true">
-                <svg><use href="/icons/bootstrap-icons.svg#{{ .icon }}"></use></svg>
+                <svg><use href="/icons/fenix-icons.svg#{{ .icon }}"></use></svg>
               </span>
               <h4>{{ .title }}</h4>
               <ul>
                 {{ range .points }}
                   <li>
-                    <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#check2"></use></svg>
+                    <svg aria-hidden="true"><use href="/icons/fenix-icons.svg#check2"></use></svg>
                     <span>{{ . }}</span>
                   </li>
                 {{ end }}
@@ -255,7 +258,7 @@
                   {{ range . }}
                     <a href="{{ .url }}" target="_blank" rel="noopener noreferrer">
                       {{ .label }}
-                      <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#box-arrow-up-right"></use></svg>
+                      <svg aria-hidden="true"><use href="/icons/fenix-icons.svg#box-arrow-up-right"></use></svg>
                     </a>
                   {{ end }}
                 </div>
@@ -270,7 +273,7 @@
           {{ $candidateName := .name }}
           {{ with resources.Get "images/landing/edwin-yanez-cv.jpg" }}
             {{ $image := .Process "fill 240x320 Center webp q85" }}
-            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Retrato de {{ $candidateName }}">
+            <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="Retrato de {{ $candidateName }}" loading="lazy" decoding="async">
           {{ end }}
           <div>
             <strong>{{ .name }}</strong>
@@ -303,7 +306,7 @@
     <section class="landing-participation" id="participacion">
       <div class="container landing-participation__inner">
         <div class="landing-participation__seal" aria-hidden="true">
-          <svg><use href="/icons/bootstrap-icons.svg#chat-square-text"></use></svg>
+          <svg><use href="/icons/fenix-icons.svg#chat-square-text"></use></svg>
         </div>
         <div>
           <p class="landing-eyebrow">{{ .eyebrow }}</p>
@@ -311,7 +314,7 @@
           <p>{{ .text }}</p>
         </div>
         <a class="landing-button landing-button--gold" href="{{ $whatsappURL }}" target="_blank" rel="noopener noreferrer">
-          <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#whatsapp"></use></svg>
+          <svg aria-hidden="true"><use href="/icons/fenix-icons.svg#whatsapp"></use></svg>
           {{ .action }}
         </a>
       </div>

@@ -27,9 +27,10 @@
     <div class="slides">
       {{ $count := len $slides }}
       {{ range $index, $resource := $slides }}
+        {{ $small := $resource.Process "resize 768x webp q82" }}
         {{ $image := $resource.Process "resize 1376x webp q85" }}
         <section>
-          <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ printf "%s, diapositiva %d de %d" $.Title (add $index 1) $count }}"{{ if eq $index 0 }} fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
+          <img src="{{ $image.RelPermalink }}" srcset="{{ $small.RelPermalink }} 768w, {{ $image.RelPermalink }} 1376w" sizes="100vw" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ printf "%s, diapositiva %d de %d" $.Title (add $index 1) $count }}" decoding="async"{{ if eq $index 0 }} fetchpriority="high"{{ else }} loading="lazy"{{ end }}>
         </section>
       {{ end }}
     </div>
