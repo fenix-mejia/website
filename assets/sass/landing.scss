@@ -905,10 +905,49 @@
 
 .landing-achievement {
   grid-column: span 2;
+  overflow: hidden;
   padding: 1.5rem;
   border: 1px solid #e1e8eb;
   border-radius: 18px;
   background: var(--landing-mist);
+  box-shadow: 0 14px 34px rgba(23, 47, 77, 0.07);
+}
+
+.landing-achievement__media {
+  margin: -1.5rem -1.5rem 1.5rem;
+  border-bottom: 1px solid #e1e8eb;
+  background: #fff;
+}
+
+.landing-achievement__media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 8 / 5;
+  object-fit: cover;
+}
+
+.landing-achievement__media figcaption {
+  padding: 0.6rem 0.75rem;
+  color: var(--landing-muted);
+  font-size: 0.66rem;
+  line-height: 1.45;
+}
+
+.landing-achievement__media figcaption a {
+  color: var(--landing-blue);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.landing-achievement__media figcaption a:hover,
+.landing-achievement__media figcaption a:focus {
+  text-decoration: underline;
+}
+
+.landing-achievement__media figcaption a:focus-visible {
+  outline: 2px solid var(--landing-gold);
+  outline-offset: 2px;
 }
 
 .landing-achievement:nth-child(n+4) {

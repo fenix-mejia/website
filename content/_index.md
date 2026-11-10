@@ -91,9 +91,9 @@ proposals:
   eyebrow: "Dos proyectos para transformar Mejía"
   title: "Propuestas Emblemáticas"
   items:
-    - title: "Chagrahuasi: El Corazón de Mejía"
+    - title: "Chagrahuasi: El Corazón que latirá por Mejía"
       image: "presentaciones/chagrahuasi/slides/01.png"
-      image_alt: "Portada de la presentación Chagrahuasi: El Corazón de Mejía"
+      image_alt: "Portada de la presentación Chagrahuasi: El Corazón que latirá por Mejía"
       url: "presentaciones/chagrahuasi/"
     - title: "Ruta de los 9 Volcanes en 9 días"
       image: "presentaciones/ruta-9-volcanes/slides/01.png"
@@ -197,6 +197,10 @@ candidate:
   achievements:
     - icon: "recycle"
       title: "Referente nacional en gestión de residuos"
+      image: "images/landing/logros/residuos-giz.jpg"
+      image_alt: "Cinta transportadora y materiales clasificados en la planta de reciclaje de Mejía."
+      image_credit: "GIZ, La experiencia de Mejía, planta de reciclaje"
+      image_credit_url: "https://star-www.giz.de/fetch/4Q0vl4X000250g400D/giz2015-0260sp-gestion-integral-mejia.pdf#page=22"
       points:
         - "Mejía obtuvo el primer lugar nacional en el Premio a las Mejores Prácticas Seccionales por su manejo de residuos sólidos."
         - "La cooperación alemana GIZ documentó el modelo como una experiencia exitosa y replicable para otros municipios del país."
@@ -206,7 +210,11 @@ candidate:
         - label: "GIZ: caso de estudio"
           url: "https://star-www.giz.de/fetch/4Q0vl4X000250g400D/giz2015-0260sp-gestion-integral-mejia.pdf#1#6#1"
     - icon: "award"
-      title: "Un hito único en el país"
+      title: "Una hazaña en seguridad"
+      image: "images/landing/logros/cachinerias-registro-oficial.jpg"
+      image_alt: "Fragmento del Registro Oficial que declara a Machachi como Primer Cantón Libre de Cachinerías a Nivel Nacional, Acuerdo 3776."
+      image_credit: "Registro Oficial, diciembre de 2013, p. 15"
+      image_credit_url: "http://esacc.corteconstitucional.gob.ec/storage/api/v1/10_DWL_FL/eyJjYXJwZXRhIjoicm8iLCJ1dWlkIjoiNWMxYTM4OTMtMDk0Mi00YWYzLTg3MjAtMmZhYTBmZTg0OWU3LnBkZiJ9#page=15"
       points:
         - "Machachi hizo historia al ser declarado el Primer Cantón Libre de Cachinerías a Nivel Nacional."
         - "El Estado ecuatoriano formalizó este precedente mediante el Acuerdo Ministerial N.º 3776, publicado en 2013."
@@ -215,16 +223,26 @@ candidate:
           url: "http://esacc.corteconstitucional.gob.ec/storage/api/v1/10_DWL_FL/eyJjYXJwZXRhIjoicm8iLCJ1dWlkIjoiNWMxYTM4OTMtMDk0Mi00YWYzLTg3MjAtMmZhYTBmZTg0OWU3LnBkZiJ9#7#13#7"
     - icon: "camera-video"
       title: "Pioneros en videovigilancia municipal"
+      image: "images/landing/logros/ojos-de-aguila-informe-2012.jpg"
+      image_alt: "Edificio de la Central de Atención Ciudadana, Ojos de Águila, en Machachi."
+      image_credit: "GAD Municipal de Mejía, Informe de Gestión 2012, p. 32"
+      image_credit_url: "https://studylib.es/doc/7568249#page=32"
       points:
         - "Ojos de Águila convirtió a Mejía en un precursor de la videovigilancia cantonal y de la atención ciudadana coordinada."
         - "El sistema sentó las bases de un modelo de monitoreo local que posteriormente se integró a plataformas nacionales."
       sources:
         - label: "AME: informe de rendición de cuentas"
           url: "https://repositorio.ame.gob.ec/alcalde-de-mejia-rindio-cuentas-a-la-ciudadania-del-canton/"
+        - label: "Informe de Gestión 2012, p. 32"
+          url: "https://studylib.es/doc/7568249#page=32"
     - icon: "map"
-      title: "La primera IDE del Ecuador"
+      title: "El primer sistema de datos territoriales del Ecuador"
+      image: "images/landing/logros/ide-mejia-informe-2012.jpg"
+      image_alt: "Ventana de la plataforma cartográfica de Mejía, con menú de consulta y mapa del territorio cantonal."
+      image_credit: "GAD Municipal de Mejía, Informe de Gestión 2012, p. 37"
+      image_credit_url: "https://studylib.es/doc/7568249#page=37"
       points:
-        - "Mejía se adelantó al país con una Infraestructura de Datos Espaciales (IDE), presentada oficialmente como la primera implementada en Ecuador."
+        - "Mejía implementó la primera Infraestructura de Datos Espaciales (IDE) del Ecuador para integrar mapas, catastro e información territorial."
         - "La integración del catastro con el Registro de la Propiedad avanzó hacia un folio real digital único y de vanguardia."
       sources:
         - label: "Informe de Gestión 2012"
@@ -233,12 +251,16 @@ candidate:
           url: "https://repositorio.ame.gob.ec/alcalde-de-mejia-rindio-cuentas-a-la-ciudadania-del-canton/"
     - icon: "droplet"
       title: "Una solución institucional para el agua"
+      image: "images/landing/logros/epaa-ordenanza.jpg"
+      image_alt: "Ordenanza de constitución de EPAA Mejía y artículo 1 que crea la empresa, publicados en el Registro Oficial 623."
+      image_credit: "Registro Oficial 623, 20 de enero de 2012, p. 2"
+      image_credit_url: "https://esacc.corteconstitucional.gob.ec/storage/api/v1/10_DWL_FL/eyJjYXJwZXRhIjoicm8iLCJ1dWlkIjoiMTNjNWNiNzQtMWUzZC00NDFkLTgzNWMtODYwYjRjYjAxMWM5LnBkZiJ9#page=2"
       points:
         - "La creación de la EPAA Mejía dotó al cantón de una herramienta directa para gestionar, invertir y mejorar el servicio de agua potable y alcantarillado."
         - "Su constitución quedó formalizada mediante ordenanza publicada en el Registro Oficial N.º 623 en 2012."
       sources:
-        - label: "Ordenanza de constitución de la EPAA Mejía"
-          url: "https://municipiodemejia.gob.ec/uploads/ordenanzas/5ad14-23-06-2016-la-ordenanza-reformatoria-a-la-ordenanza-de-constitucion-agua-potable-y-alcantarillado-del-canton-mejia-ep..pdf#1#1#1"
+        - label: "Registro Oficial 623: ordenanza de constitución de EPAA Mejía"
+          url: "https://esacc.corteconstitucional.gob.ec/storage/api/v1/10_DWL_FL/eyJjYXJwZXRhIjoicm8iLCJ1dWlkIjoiMTNjNWNiNzQtMWUzZC00NDFkLTgzNWMtODYwYjRjYjAxMWM5LnBkZiJ9#page=2"
   resume_title: "Hoja de Vida"
   education_title: "Formación académica"
   education:

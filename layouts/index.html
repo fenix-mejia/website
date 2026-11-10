@@ -218,6 +218,19 @@
         <div class="landing-achievements__grid">
           {{ range .achievements }}
             <article class="landing-achievement">
+              {{ $achievement := . }}
+              {{ with resources.Get .image }}
+                {{ $image := .Process "fill 960x600 Center webp q84" }}
+                <figure class="landing-achievement__media">
+                  <img src="{{ $image.RelPermalink }}" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $achievement.image_alt }}" loading="lazy">
+                  <figcaption>
+                    Fuente de la imagen:
+                    <a href="{{ $achievement.image_credit_url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ $achievement.image_credit }} (se abre en una nueva pestaña)">
+                      {{ $achievement.image_credit }}
+                    </a>
+                  </figcaption>
+                </figure>
+              {{ end }}
               <span class="landing-icon" aria-hidden="true">
                 <svg><use href="/icons/bootstrap-icons.svg#{{ .icon }}"></use></svg>
               </span>
