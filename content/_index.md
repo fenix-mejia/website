@@ -103,8 +103,14 @@ proposals:
 territory:
   eyebrow: "2 concejalías + 7 juntas parroquiales"
   title: "Un plan con raíces en cada territorio."
-  image_alt: "Fotografía provisional de un paisaje de montañas; reemplazar por una fotografía del cantón Mejía"
-  image_note: "Paisaje provisional · Reemplazar por una fotografía auténtica de Mejía"
+  image: "images/landing/territory/machachi-atardecer.jpg"
+  image_alt: "Vista aérea de Machachi, capital del cantón Mejía, al atardecer"
+  image_note: "Machachi, corazón del cantón Mejía"
+  image_credit_name: "Klvay"
+  image_credit_url: "https://commons.wikimedia.org/wiki/User:Klvay"
+  image_source_url: "https://commons.wikimedia.org/wiki/File:Ciudad_de_Machachi.jpg"
+  image_license: "CC BY-SA 4.0"
+  image_license_url: "https://creativecommons.org/licenses/by-sa/4.0/"
 
 parishes:
   - name: "Zona urbana"
