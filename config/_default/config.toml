@@ -8,6 +8,7 @@ timeZone = 'America/Guayaquil'
 # Multilingual
 defaultContentLanguage = "es"
 defaultContentLanguageInSubdir = false
+disableLanguages = ["en", "pt"]
 
 theme = "hugo-bootstrap-theme"
 # themesdir = "../.."
