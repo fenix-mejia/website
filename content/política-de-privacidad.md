@@ -8,7 +8,7 @@ menu:
     weight: 90
 ---
 
-**En resumen: No utilizamos cookies de seguimiento y no recopilamos directamente ningún dato personal. Sin embargo, este sitio utiliza servicios de terceros (para alojamiento, formularios de contacto, mapas y enlaces a WhatsApp) que pueden procesar ciertos datos, como se detalla a continuación.**
+**En resumen: No utilizamos cookies de seguimiento y no recopilamos directamente ningún dato personal. Sin embargo, este sitio utiliza servicios de terceros (para alojamiento, formularios de contacto, mapas y enlaces a servicios externos como WhatsApp y redes sociales) que pueden procesar ciertos datos, como se detalla a continuación.**
 
 Nuestra política es respetar su privacidad con respecto a cualquier información que podamos procesar.
 
@@ -44,14 +44,18 @@ OpenStreetMap es un proyecto de cartografía libre mantenido por la comunidad y 
 
 > ℹ️ **Nota**: La Fundación OpenStreetMap procesa los datos de solicitud únicamente para prestar el servicio y conforme al GDPR. Para más detalles, puede consultar la [Política de Privacidad de la Fundación OpenStreetMap](https://osmfoundation.org/wiki/Privacy_Policy).
 
-### 4. Enlaces a WhatsApp
+### 4. Enlaces a Sitios y Servicios de Terceros
 
-En la página de inicio y en la página de contacto ofrecemos botones que abren **WhatsApp** (servicio operado por Meta Platforms, Inc.) con un mensaje predefinido. Al hacer clic en estos botones, su navegador se conecta directamente con los servidores de WhatsApp y abandona nuestro sitio. Nuestro sitio web no recibe ni almacena las conversaciones que mantenga a través de WhatsApp; cualquier dato que envíe por ese medio se rige por la política de privacidad de WhatsApp/Meta y por la configuración de su propia cuenta.
+Este sitio incluye botones y enlaces que dirigen hacia servicios externos operados por terceros:
 
-> ℹ️ **Nota**: Para más detalles, puede consultar la [Política de Privacidad de WhatsApp](https://www.whatsapp.com/legal/privacy-policy).
+- **WhatsApp (Meta Platforms, Inc.)**: al hacer clic en los botones de WhatsApp, se abre la aplicación o el sitio web de WhatsApp con un mensaje predefinido. Nuestro sitio web no recibe ni almacena las conversaciones que mantenga a través de WhatsApp; cualquier dato que envíe por ese medio se rige por la política de privacidad de WhatsApp/Meta y por la configuración de su propia cuenta.
+
+- **Redes sociales**: los enlaces a redes sociales dirigen a perfiles personales de cada candidato. Al hacer clic en ellos, usted abandona nuestro sitio y pasa a estar sujeto a las políticas de privacidad de la plataforma correspondiente.
+
+> ℹ️ **Nota**: No somos responsables de las prácticas de privacidad de estos sitios de terceros. Le recomendamos consultar las políticas de privacidad de [WhatsApp](https://www.whatsapp.com/legal/privacy-policy?lang=es), [Facebook](https://es-la.facebook.com/privacy/policy/) y [TikTok](https://www.tiktok.com/legal/privacy-policy?lang=es) antes de enviar información personal a través de ellos.
 
 ## Contáctenos
 
 Si tiene alguna pregunta, [contáctenos](/contacto/).
 
-**Actualizado al:** *5 de noviembre de 2026*
+**Actualizado al:** *9 de noviembre de 2026*
