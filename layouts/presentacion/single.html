@@ -2,17 +2,18 @@
 <html lang="{{ .Language.LanguageCode | default "es-EC" }}">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="description" content="{{ .Description }}">
   <title>{{ .Title }} | Movimiento Fénix</title>
   <link rel="icon" type="image/svg+xml" href="{{ `favicon.svg` | absURL }}">
   <link rel="stylesheet" href="{{ `vendor/revealjs/reveal.css` | relURL }}">
-  <link rel="stylesheet" href="{{ `vendor/revealjs/presentations.css` | relURL }}">
+  {{ $presentationStyles := resources.Get "vendor/revealjs/presentations.css" | fingerprint }}
+  <link rel="stylesheet" href="{{ $presentationStyles.RelPermalink }}">
 </head>
 <body class="presentation-page">
   <header class="presentation-header">
     <a class="presentation-header__back" href="{{ .Site.Home.RelPermalink }}#propuestas" aria-label="Volver a las propuestas emblemáticas">
-      <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16Z"/><path d="M11.354 4.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 .708.708l6-6a.5.5 0 0 0 0-.708Z"/><path d="M4.646 5.354a.5.5 0 1 0 .708-.708L3.207 2.5l2.147-2.146a.5.5 0 1 0-.708-.708L1.293 3a.5.5 0 0 0 0 .708l3.353 3.353c.183.183.465.217.707.105Z"/></svg>
+      <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16Z"/><path d="M11.354 4.646a.5.5 0 0 0-.708 0l-6 6a.5.5 0 0 0 .708.708l6-6a.5.5 0 0 0 0-.708Z"/><path d="M4.646 5.354a.5.5 0 0 0 0 .708L3.207 2.5l2.147-2.146a.5.5 0 0 0-.708-.708L1.293 3a.5.5 0 0 0 0 .708l3.353 3.353c.183.183.465.217.707.105Z"/></svg>
       <span>Propuestas</span>
     </a>
     <div class="presentation-header__title">
@@ -20,7 +21,12 @@
       <strong>{{ .Title }}</strong>
     </div>
     {{ $slides := resources.Match .Params.slides_path }}
-    <span class="presentation-header__count">{{ len $slides }} diapositivas</span>
+    <div class="presentation-header__actions">
+      <span class="presentation-header__count">{{ len $slides }} diapositivas</span>
+      <button class="presentation-fullscreen" id="presentation-fullscreen" type="button" aria-label="Ver en pantalla completa" aria-pressed="false" title="Ver en pantalla completa">
+        <svg aria-hidden="true" viewBox="0 0 16 16"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4"/></svg>
+      </button>
+    </div>
   </header>
 
   <main class="reveal" aria-label="Presentación: {{ .Title }}">
@@ -58,6 +64,94 @@
       overview: true,
       transition: 'fade',
       transitionSpeed: 'fast'
+    });
+
+    const fullscreenButton = document.getElementById('presentation-fullscreen');
+    const root = document.documentElement;
+    const supportsFullscreen = document.fullscreenEnabled && typeof root.requestFullscreen === 'function';
+    let fullscreenIdleTimer;
+
+    function showFullscreenControl() {
+      if (!document.body.classList.contains('presentation-expanded')) {
+        return;
+      }
+      document.body.classList.remove('presentation-control-idle');
+      clearTimeout(fullscreenIdleTimer);
+      fullscreenIdleTimer = setTimeout(() => {
+        document.body.classList.add('presentation-control-idle');
+      }, 2500);
+    }
+
+    function updatePresentationMode(expanded) {
+      clearTimeout(fullscreenIdleTimer);
+      document.body.classList.remove('presentation-control-idle');
+      document.body.classList.toggle('presentation-expanded', expanded);
+      fullscreenButton.setAttribute('aria-pressed', String(expanded));
+      const actionLabel = expanded ? 'Salir de la presentación ampliada' : 'Ver en pantalla completa';
+      fullscreenButton.setAttribute('aria-label', actionLabel);
+      fullscreenButton.setAttribute('title', actionLabel);
+      requestAnimationFrame(() => Reveal.layout());
+      if (expanded) {
+        showFullscreenControl();
+      }
+    }
+
+    function unlockOrientation() {
+      try {
+        if (screen.orientation && screen.orientation.unlock) {
+          screen.orientation.unlock();
+        }
+      } catch {}
+    }
+
+    async function lockLandscape() {
+      try {
+        if (screen.orientation && screen.orientation.lock) {
+          await screen.orientation.lock('landscape');
+        }
+      } catch {}
+    }
+
+    fullscreenButton.addEventListener('click', async () => {
+      if (document.fullscreenElement) {
+        try {
+          await document.exitFullscreen();
+        } catch {}
+        return;
+      }
+
+      if (document.body.classList.contains('presentation-expanded')) {
+        updatePresentationMode(false);
+        unlockOrientation();
+        return;
+      }
+
+      if (supportsFullscreen) {
+        try {
+          await root.requestFullscreen();
+          await lockLandscape();
+          return;
+        } catch {}
+      }
+
+      updatePresentationMode(true);
+    });
+
+    fullscreenButton.addEventListener('focus', () => {
+      clearTimeout(fullscreenIdleTimer);
+      document.body.classList.remove('presentation-control-idle');
+    });
+    fullscreenButton.addEventListener('blur', showFullscreenControl);
+    document.addEventListener('pointermove', showFullscreenControl, { passive: true });
+    document.addEventListener('pointerdown', showFullscreenControl, { passive: true });
+    document.addEventListener('keydown', showFullscreenControl);
+
+    document.addEventListener('fullscreenchange', () => {
+      const expanded = Boolean(document.fullscreenElement);
+      updatePresentationMode(expanded);
+      if (!expanded) {
+        unlockOrientation();
+      }
     });
   </script>
 </body>

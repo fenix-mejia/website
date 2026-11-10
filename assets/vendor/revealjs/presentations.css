@@ -71,10 +71,59 @@ body {
   white-space: nowrap;
 }
 
+.presentation-header__actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .presentation-header__count {
   color: #aebfd0;
   font-size: 0.72rem;
   white-space: nowrap;
+}
+
+.presentation-fullscreen {
+  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: transparent;
+  color: #f6e8b5;
+  cursor: pointer;
+  transition: background 160ms ease, color 160ms ease, opacity 200ms ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.presentation-fullscreen:hover,
+.presentation-fullscreen:focus-visible {
+  background: rgba(246, 232, 181, 0.12);
+  color: #fff;
+  outline: none;
+}
+
+.presentation-fullscreen:focus-visible {
+  box-shadow: 0 0 0 2px #f6e8b5;
+}
+
+.presentation-fullscreen[aria-pressed="true"] {
+  background: rgba(16, 36, 59, 0.58);
+  color: #fff;
+  backdrop-filter: blur(8px);
+}
+
+.presentation-fullscreen svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
 }
 
 .reveal {
@@ -117,6 +166,37 @@ body {
   font-size: 12px;
 }
 
+.presentation-expanded .presentation-header {
+  height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.presentation-expanded .presentation-header__back,
+.presentation-expanded .presentation-header__title,
+.presentation-expanded .presentation-header__count {
+  display: none;
+}
+
+.presentation-expanded .presentation-header__actions {
+  position: fixed;
+  top: max(0.75rem, env(safe-area-inset-top));
+  right: max(0.75rem, env(safe-area-inset-right));
+  pointer-events: auto;
+}
+
+.presentation-expanded.presentation-control-idle .presentation-fullscreen:not(:focus-visible) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.presentation-expanded .reveal {
+  height: 100dvh !important;
+  margin-top: 0;
+}
+
 .presentation-noscript {
   position: fixed;
   z-index: 40;
@@ -132,7 +212,7 @@ body {
 
 @media (max-width: 700px) {
   .presentation-header {
-    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-columns: auto minmax(0, 1fr) auto;
     gap: 0.75rem;
     padding: 0 0.85rem;
   }
@@ -149,5 +229,11 @@ body {
   .presentation-header__title strong {
     max-width: 100%;
     font-size: 0.72rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .presentation-fullscreen {
+    transition: none;
   }
 }
