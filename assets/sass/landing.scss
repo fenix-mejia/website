@@ -671,6 +671,12 @@
   letter-spacing: 0.025em;
 }
 
+.landing-territory__photo figcaption a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 .landing-parishes {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
