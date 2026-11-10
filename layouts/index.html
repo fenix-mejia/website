@@ -30,6 +30,16 @@
             <span>{{ $hero.role }}</span>
           </div>
         </div>
+        {{ with $hero.socials }}
+          <div class="landing-hero__socials">
+            <span>{{ $hero.social_label }}</span>
+            <div>
+              {{ range . }}
+                {{ partial "helpers/social-link.html" (dict "network" .network "url" .url "label" (printf "%s de %s" .network $hero.candidate)) }}
+              {{ end }}
+            </div>
+          </div>
+        {{ end }}
       </div>
 
       <div class="landing-hero__visual">
@@ -45,19 +55,6 @@
           </figure>
         {{ end }}
       </div>
-    </div>
-  </section>
-
-  <section class="landing-stats" aria-label="El plan en cifras">
-    <div class="container">
-      <dl class="landing-stats__grid">
-        {{ range .Params.stats }}
-          <div class="landing-stat">
-            <dt>{{ .label }}</dt>
-            <dd>{{ .value }}</dd>
-          </div>
-        {{ end }}
-      </dl>
     </div>
   </section>
 
@@ -174,6 +171,14 @@
               <p class="landing-parish__candidate">{{ .candidate }}</p>
               <p>{{ .priority }}</p>
             </div>
+            {{ $candidateName := .candidate }}
+            {{ with .socials }}
+              <div class="landing-parish__socials">
+                {{ range . }}
+                  {{ partial "helpers/social-link.html" (dict "network" .network "url" .url "label" (printf "%s de %s" .network $candidateName)) }}
+                {{ end }}
+              </div>
+            {{ end }}
           </article>
         {{ end }}
       </div>

@@ -12,14 +12,12 @@ hero:
   primary_action: "Descubre nuestro plan"
   secondary_action: "Comparte tu propuesta"
   image_alt: "Dr. Edwin David Yánez Calvachi, candidato a la Alcaldía del cantón Mejía, saludando"
-
-stats:
-  - value: "5"
-    label: "ejes"
-  - value: "2"
-    label: "proyectos emblemáticos"
-  - value: "1"
-    label: "sola visión"
+  social_label: "Sigue al Dr. Edwin Yánez:"
+  socials:
+    - network: "Facebook"
+      url: "https://www.facebook.com/EdwinYanez.Ec"
+    - network: "TikTok"
+      url: "https://www.tiktok.com/@edwinyanez110"
 
 plan:
   eyebrow: "Nuestro plan de trabajo"
@@ -116,6 +114,11 @@ parishes:
     photo: "images/landing/territory/urbanos.jpg"
     photo_alt: "Ximena Llano, candidata a la Concejalía Urbana"
     priority: "Seguridad, productividad, saneamiento y ordenamiento urbano"
+    socials:
+      - network: "Facebook"
+        url: "https://www.facebook.com/XimenaLlanoPachakutik/"
+      - network: "TikTok"
+        url: "https://www.tiktok.com/@xime_llanoa"
   - name: "Zona rural"
     label: "Concejalía rural"
     council: true
@@ -123,6 +126,11 @@ parishes:
     photo: "images/landing/territory/rurales.png"
     photo_alt: "Kevin Parra, candidato a la Concejalía Rural"
     priority: "Oportunidades productivas, vialidad y servicios para las comunidades rurales"
+    socials:
+      - network: "Facebook"
+        url: "https://www.facebook.com/kevin.parra.5458/"
+      - network: "TikTok"
+        url: "https://www.tiktok.com/@kevin_parra110"
   - name: "Alóag"
     label: "Junta parroquial"
     candidate: "Telmo Guzmán"
@@ -141,6 +149,9 @@ parishes:
     photo: "images/landing/territory/cutuglagua.jpg"
     photo_alt: "David Ledesma, candidato a la Junta Parroquial de Cutuglagua"
     priority: "Agua potable, alcantarillado y vialidad"
+    socials:
+      - network: "Facebook"
+        url: "https://www.facebook.com/David.Ledesma1978/"
   - name: "El Chaupi"
     label: "Junta parroquial"
     candidate: "Anahise Gallo"
@@ -165,6 +176,9 @@ parishes:
     photo: "images/landing/territory/uyumbicho.jpg"
     photo_alt: "Luis Trujillo, candidato a la Junta Parroquial de Uyumbicho"
     priority: "Productividad, ambiente y equipamiento urbano"
+    socials:
+      - network: "Facebook"
+        url: "https://www.facebook.com/hamiltonluis.trujillovillavicencio/"
 
 candidate:
   eyebrow: "Quién encabeza esta propuesta"

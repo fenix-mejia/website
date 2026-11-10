@@ -11,3 +11,17 @@
   <svg aria-hidden="true"><use href="/icons/bootstrap-icons.svg#whatsapp"></use></svg>
   Escríbenos por WhatsApp
 </a>
+
+{{ with .Site.Menus.social }}
+  <section class="contacto-social" aria-labelledby="contacto-social-title">
+    <h3 id="contacto-social-title">Redes del Movimiento Fénix</h3>
+    <p>Sigue al movimiento en sus canales oficiales:</p>
+    <ul class="contacto-social__links">
+      {{ range . }}
+        <li>
+          {{ partial "helpers/social-link.html" (dict "network" .Name "url" .URL "label" (printf "%s del Movimiento Fénix" .Name)) }}
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}

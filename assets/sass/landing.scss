@@ -276,6 +276,24 @@
   font-size: 0.82rem;
 }
 
+.landing-hero__socials {
+  margin-top: 1.25rem;
+}
+
+.landing-hero__socials > span {
+  display: block;
+  margin-bottom: 0.65rem;
+  color: var(--landing-muted);
+  font-size: 0.78rem;
+  font-weight: 650;
+}
+
+.landing-hero__socials > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+}
+
 .landing-hero__visual {
   position: relative;
   min-height: clamp(500px, 57vw, 650px);
@@ -329,49 +347,6 @@
   width: 100%;
   height: auto;
   filter: drop-shadow(0 24px 32px rgba(23, 47, 77, 0.18));
-}
-
-.landing-stats {
-  position: relative;
-  z-index: 2;
-  background: var(--landing-navy);
-  color: #fff;
-}
-
-.landing-stats__grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1px;
-  margin: 0;
-  background: rgba(255, 255, 255, 0.13);
-}
-
-.landing-stat {
-  display: flex;
-  min-height: 132px;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1.5rem 2rem;
-  background: var(--landing-navy);
-}
-
-.landing-stat dt {
-  max-width: 150px;
-  margin: 0;
-  color: #d5e1ed;
-  font-size: 0.78rem;
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-.landing-stat dd {
-  margin: 0;
-  color: var(--landing-gold);
-  font-family: Georgia, serif;
-  font-size: 3.25rem;
-  line-height: 1;
-  order: -1;
 }
 
 .landing-plan {
@@ -757,6 +732,42 @@
   color: #fff;
   font-size: 0.82rem;
   font-weight: 750;
+}
+
+.landing-parish__socials {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.landing-parish__socials .social-link {
+  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(255, 255, 255, 0.06);
+  color: #fff;
+}
+
+.landing-parish__socials .social-link:hover,
+.landing-parish__socials .social-link:focus {
+  background: #fff;
+  color: var(--landing-navy);
+}
+
+.landing-parish--council .landing-parish__socials {
+  border-color: rgba(23, 47, 77, 0.16);
+}
+
+.landing-parish--council .landing-parish__socials .social-link {
+  border-color: rgba(23, 47, 77, 0.18);
+  background: rgba(255, 255, 255, 0.45);
+  color: var(--landing-navy);
+}
+
+.landing-parish--council .landing-parish__socials .social-link:hover,
+.landing-parish--council .landing-parish__socials .social-link:focus {
+  background: #fff;
 }
 
 .landing-parish--council {
@@ -1321,28 +1332,6 @@
 
   .landing-hero__sun {
     width: 340px;
-  }
-
-  .landing-stats__grid {
-    grid-template-columns: 1fr;
-    padding: 0.5rem 0;
-  }
-
-  .landing-stat {
-    min-height: 94px;
-    justify-content: flex-start;
-    padding: 1rem 1.5rem;
-  }
-
-  .landing-stat dt {
-    max-width: none;
-  }
-
-  .landing-stat dd {
-    min-width: 3.5rem;
-    font-size: 2.8rem;
-    order: -1;
-    text-align: center;
   }
 
   .landing-policy-card,
