@@ -157,13 +157,9 @@
         {{ $image := .Process "resize 1600x webp q82" }}
         <figure class="landing-territory__photo">
           <img src="{{ $image.RelPermalink }}" srcset="{{ $small.RelPermalink }} 640w, {{ $medium.RelPermalink }} 960w, {{ $image.RelPermalink }} 1600w" sizes="(max-width: 1320px) 100vw, 1320px" width="{{ $image.Width }}" height="{{ $image.Height }}" alt="{{ $.Params.territory.image_alt }}" loading="lazy" decoding="async">
-          <figcaption>
-            {{ $.Params.territory.image_note }}
-            · Foto: <a href="{{ $.Params.territory.image_credit_url }}" rel="noopener" target="_blank">{{ $.Params.territory.image_credit_name }}</a>,
-            <a href="{{ $.Params.territory.image_source_url }}" rel="noopener" target="_blank">vía Wikimedia Commons</a>,
-            <a href="{{ $.Params.territory.image_license_url }}" rel="noopener" target="_blank">{{ $.Params.territory.image_license }}</a>
-            (imagen redimensionada)
-          </figcaption>
+          {{ with $.Params.territory.image_note }}
+            <figcaption>{{ . }}</figcaption>
+          {{ end }}
         </figure>
       {{ end }}
       <div class="landing-parishes">
