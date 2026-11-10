@@ -8,7 +8,7 @@ menu:
     weight: 90
 ---
 
-**En resumen: No utilizamos cookies de seguimiento y no recopilamos directamente ningún dato personal. Sin embargo, este sitio utiliza servicios de terceros (para alojamiento, formularios de contacto y mapas) que pueden procesar ciertos datos, como se detalla a continuación.**
+**En resumen: No utilizamos cookies de seguimiento y no recopilamos directamente ningún dato personal. Sin embargo, este sitio utiliza servicios de terceros (para alojamiento, formularios de contacto, mapas y enlaces a servicios externos como WhatsApp y redes sociales) que pueden procesar ciertos datos, como se detalla a continuación.**
 
 Nuestra política es respetar su privacidad con respecto a cualquier información que podamos procesar.
 
@@ -38,14 +38,24 @@ Utilizamos un formulario de contacto proporcionado por **Tally.so**. Cuando uste
 
 ### 3. Mapa Interactivo
 
-Mostramos un mapa interactivo utilizando teselas (tiles) proporcionadas por **CARTO**. Las imágenes del mapa que visualiza son servidas directamente desde los servidores de CARTO (`basemaps.cartocdn.com`). Al cargar el mapa, su navegador realiza solicitudes directamente a los servidores de CARTO, lo que significa que su dirección IP será visible para ellos.
+Mostramos un mapa interactivo en la página de contacto utilizando la biblioteca **Leaflet**, cargada desde el CDN público **unpkg** (`unpkg.com`), y teselas (imágenes del mapa) proporcionadas directamente por los servidores de **OpenStreetMap** (`tile.openstreetmap.org`). Al cargar el mapa, su navegador realiza solicitudes directas a estos servidores, lo que significa que su dirección IP será visible para ellos, junto con la zona geográfica que visualiza.
 
-Los mapas de CARTO utilizan datos geográficos de OpenStreetMap (una comunidad de mapeo abierto), por lo que la atribución correspondiente se muestra en el pie del mapa.
+OpenStreetMap es un proyecto de cartografía libre mantenido por la comunidad y la Fundación OpenStreetMap. La atribución correspondiente se muestra en el pie del mapa.
 
-> ℹ️ **Nota**: CARTO es una plataforma de análisis de datos geoespaciales que proporciona estas imágenes de mapa como servicio gratuito sujeto a atribución. Para más detalles sobre cómo procesan los datos de solicitud, puede consultar la [Política de Privacidad de CARTO](https://carto.com/privacy/).
+> ℹ️ **Nota**: La Fundación OpenStreetMap procesa los datos de solicitud únicamente para prestar el servicio y conforme al GDPR. Para más detalles, puede consultar la [Política de Privacidad de la Fundación OpenStreetMap](https://osmfoundation.org/wiki/Privacy_Policy).
+
+### 4. Enlaces a Sitios y Servicios de Terceros
+
+Este sitio incluye botones y enlaces que dirigen hacia servicios externos operados por terceros:
+
+- **WhatsApp (Meta Platforms, Inc.)**: al hacer clic en los botones de WhatsApp, se abre la aplicación o el sitio web de WhatsApp con un mensaje predefinido. Nuestro sitio web no recibe ni almacena las conversaciones que mantenga a través de WhatsApp; cualquier dato que envíe por ese medio se rige por la política de privacidad de WhatsApp/Meta y por la configuración de su propia cuenta.
+
+- **Redes sociales**: los enlaces a redes sociales dirigen a perfiles personales de cada candidato. Al hacer clic en ellos, usted abandona nuestro sitio y pasa a estar sujeto a las políticas de privacidad de la plataforma correspondiente.
+
+> ℹ️ **Nota**: No somos responsables de las prácticas de privacidad de estos sitios de terceros. Le recomendamos consultar las políticas de privacidad de [WhatsApp](https://www.whatsapp.com/legal/privacy-policy?lang=es), [Facebook](https://es-la.facebook.com/privacy/policy/) y [TikTok](https://www.tiktok.com/legal/privacy-policy?lang=es) antes de enviar información personal a través de ellos.
 
 ## Contáctenos
 
 Si tiene alguna pregunta, [contáctenos](/contacto/).
 
-**Actualizado al:** *5 de abril de 2026*
+**Actualizado al:** *9 de noviembre de 2026*
