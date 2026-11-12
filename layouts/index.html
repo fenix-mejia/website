@@ -279,7 +279,7 @@
             {{ with resources.Get (printf "images/landing/archivo-logros/%s.jpg" .image) }}
               {{ $small := .Process "resize 480x webp q80" }}
               {{ $thumbnail := .Process "resize 640x webp q82" }}
-              <a class="landing-work-preview" href="{{ printf "%s#%s" ("archivo-logros/" | relURL) ($item.category | urlize) }}" aria-label="Ver {{ $item.title }} en el archivo fotográfico">
+              <a class="landing-work-preview" href="{{ printf "%s#%s" ("archivo-logros/" | relURL) (index $.Site.Data.logros.categorias $item.category) }}" aria-label="Ver {{ $item.title }} en el archivo fotográfico">
                 <figure>
                   <img src="{{ $thumbnail.RelPermalink }}" srcset="{{ $small.RelPermalink }} 480w, {{ $thumbnail.RelPermalink }} 640w" sizes="(max-width: 575.98px) 100vw, (max-width: 991.98px) 50vw, 33vw" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async">
                   <figcaption>{{ $item.title }}</figcaption>

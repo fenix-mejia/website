@@ -1,6 +1,7 @@
 {{ define "main" }}
 {{ $items := .Site.Data.logros.obras }}
 {{ $categories := slice "Equipamiento y servicios" "Educación y salud" "Deporte y espacios públicos" "Vialidad y obras urbanas" }}
+{{ $categoryIDs := .Site.Data.logros.categorias }}
 <main class="archive-page">
   <section class="archive-hero">
     <div class="container archive-hero__inner">
@@ -14,22 +15,34 @@
         <p>Obras y servicios documentados en el folleto institucional, reunidos para explorar con calma. Seleccione una imagen para verla en tamaño completo.</p>
         <strong>{{ len $items }} registros visuales</strong>
       </div>
-      <nav class="archive-categories" aria-label="Categorías del archivo">
-        <ul>
-          {{ range $categories }}
-            {{ $categoryItems := where $items "category" . }}
-            <li><a href="#{{ . | urlize }}">{{ . }} <span>{{ len $categoryItems }}</span></a></li>
-          {{ end }}
-        </ul>
-      </nav>
     </div>
   </section>
 
-  <div class="container archive-content">
-    {{ range $categories }}
+  <div class="container archive-layout">
+    <aside class="archive-sidebar" aria-label="Navegación persistente del archivo">
+      <a class="archive-back archive-sidebar__back" href="{{ .Site.Home.RelPermalink }}#archivo-logros" aria-label="Volver a trayectoria y logros">
+        <span aria-hidden="true">←</span>
+        <span class="archive-back__full">Volver a trayectoria y logros</span>
+        <span class="archive-back__short">Volver</span>
+      </a>
+      <nav class="archive-categories" aria-labelledby="archive-categories-title">
+        <p class="archive-sidebar__title" id="archive-categories-title">Explorar por categoría</p>
+        <p class="archive-sidebar__meta">{{ len $items }} imágenes · {{ len $categories }} categorías</p>
+        <ul data-archive-categories>
+          {{ range $index, $category := $categories }}
+            {{ $categoryItems := where $items "category" $category }}
+            {{ $categoryID := index $categoryIDs $category }}
+            <li><a href="#{{ $categoryID }}" data-category-link="{{ $categoryID }}"{{ if eq $index 0 }} class="is-active" aria-current="location"{{ end }}>{{ $category }} <span>{{ len $categoryItems }}</span></a></li>
+          {{ end }}
+        </ul>
+      </nav>
+    </aside>
+
+    <div class="archive-content">
+      {{ range $categories }}
       {{ $category := . }}
       {{ $categoryItems := where $items "category" . }}
-      {{ $categoryID := . | urlize }}
+      {{ $categoryID := index $categoryIDs . }}
       <section class="archive-group" id="{{ $categoryID }}" aria-labelledby="{{ $categoryID }}-title">
         <header class="archive-group__header">
           <h2 id="{{ $categoryID }}-title">{{ . }}</h2>
@@ -58,7 +71,8 @@
           {{ end }}
         </div>
       </section>
-    {{ end }}
+      {{ end }}
+    </div>
   </div>
 
   <dialog class="archive-viewer" id="archive-viewer" aria-labelledby="archive-viewer-title">
