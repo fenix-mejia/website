@@ -1,0 +1,94 @@
+{{ define "main" }}
+{{ $items := .Site.Data.logros.obras }}
+{{ $categories := slice "Equipamiento y servicios" "Educación y salud" "Deporte y espacios públicos" "Vialidad y obras urbanas" }}
+<main class="archive-page">
+  <section class="archive-hero">
+    <div class="container archive-hero__inner">
+      <a class="archive-back" href="{{ .Site.Home.RelPermalink }}#archivo-logros">
+        <span aria-hidden="true">←</span>
+        Volver a trayectoria y logros
+      </a>
+      <p class="archive-eyebrow">Memoria de gestión 2009–2013</p>
+      <h1>{{ .Title }}</h1>
+      <div class="archive-hero__summary">
+        <p>Obras y servicios documentados en el folleto institucional, reunidos para explorar con calma. Seleccione una imagen para verla en tamaño completo.</p>
+        <strong>{{ len $items }} registros visuales</strong>
+      </div>
+      <nav class="archive-categories" aria-label="Categorías del archivo">
+        <ul>
+          {{ range $categories }}
+            {{ $categoryItems := where $items "category" . }}
+            <li><a href="#{{ . | urlize }}">{{ . }} <span>{{ len $categoryItems }}</span></a></li>
+          {{ end }}
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <div class="container archive-content">
+    {{ range $categories }}
+      {{ $category := . }}
+      {{ $categoryItems := where $items "category" . }}
+      {{ $categoryID := . | urlize }}
+      <section class="archive-group" id="{{ $categoryID }}" aria-labelledby="{{ $categoryID }}-title">
+        <header class="archive-group__header">
+          <h2 id="{{ $categoryID }}-title">{{ . }}</h2>
+          <span>{{ len $categoryItems }} registros</span>
+        </header>
+        <div class="archive-grid">
+          {{ range $categoryItems }}
+            {{ $item := . }}
+            {{ $alt := printf "Fotografía del folleto Memoria 2009–2013: %s" .title }}
+            {{ with resources.Get (printf "images/landing/archivo-logros/%s.jpg" .image) }}
+              {{ $small := .Process "resize 480x webp q80" }}
+              {{ $thumbnail := .Process "resize 640x webp q82" }}
+              {{ $full := .Process "resize 1800x webp q88" }}
+              <article class="archive-card">
+                <a href="{{ $full.RelPermalink }}" data-archive-item data-archive-title="{{ $item.title }}" data-archive-alt="{{ $alt }}" aria-label="Ampliar imagen: {{ $item.title }}">
+                  <div class="archive-card__media">
+                    <img src="{{ $thumbnail.RelPermalink }}" srcset="{{ $small.RelPermalink }} 480w, {{ $thumbnail.RelPermalink }} 640w" sizes="(max-width: 575.98px) 100vw, (max-width: 991.98px) 50vw, 33vw" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+                  </div>
+                  <div class="archive-card__body">
+                    <h3>{{ $item.title }}</h3>
+                    <span>Ver imagen <span aria-hidden="true">↗</span></span>
+                  </div>
+                </a>
+              </article>
+            {{ end }}
+          {{ end }}
+        </div>
+      </section>
+    {{ end }}
+  </div>
+
+  <dialog class="archive-viewer" id="archive-viewer" aria-labelledby="archive-viewer-title">
+    <div class="archive-viewer__panel">
+      <header class="archive-viewer__header">
+        <div aria-live="polite" aria-atomic="true">
+          <span id="archive-viewer-count"></span>
+          <h2 id="archive-viewer-title"></h2>
+        </div>
+        <button class="archive-viewer__button" id="archive-viewer-close" type="button" aria-label="Cerrar imagen ampliada">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3 3 10 10M13 3 3 13"></path></svg>
+        </button>
+      </header>
+      <div class="archive-viewer__stage">
+        <button class="archive-viewer__button" id="archive-viewer-previous" type="button" aria-label="Ver imagen anterior">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m10 3-5 5 5 5"></path></svg>
+        </button>
+        <img id="archive-viewer-image" width="1800" height="1350" alt="">
+        <button class="archive-viewer__button" id="archive-viewer-next" type="button" aria-label="Ver imagen siguiente">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"></path></svg>
+        </button>
+      </div>
+      <footer class="archive-viewer__footer">
+        <span>Use las flechas del teclado para recorrer el archivo</span>
+        <a id="archive-viewer-open" href="#" target="_blank" rel="noopener noreferrer">Abrir imagen en una pestaña nueva</a>
+      </footer>
+    </div>
+  </dialog>
+
+  {{ $archiveJS := resources.Get "js/archive-gallery.js" | fingerprint }}
+  <script src="{{ $archiveJS.RelPermalink }}" integrity="{{ $archiveJS.Data.Integrity }}" crossorigin="anonymous" defer></script>
+</main>
+{{ end }}

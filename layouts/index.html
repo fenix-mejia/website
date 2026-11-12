@@ -263,6 +263,32 @@
           {{ end }}
         </div>
       </div>
+      <section class="container landing-work-archive" id="archivo-logros" aria-labelledby="archivo-logros-title">
+        <header class="landing-work-archive__header">
+          <div>
+            <p class="landing-eyebrow">{{ .archive_eyebrow }}</p>
+            <h3 id="archivo-logros-title">{{ .archive_title }}</h3>
+            <p>{{ .archive_summary }}</p>
+          </div>
+          <a class="landing-button landing-button--primary" href="{{ "archivo-logros/" | relURL }}">{{ .archive_action }}</a>
+        </header>
+        <div class="landing-work-archive__grid">
+          {{ range where $.Site.Data.logros.obras "featured" true }}
+            {{ $item := . }}
+            {{ $alt := printf "Fotografía del folleto Memoria 2009–2013: %s" .title }}
+            {{ with resources.Get (printf "images/landing/archivo-logros/%s.jpg" .image) }}
+              {{ $small := .Process "resize 480x webp q80" }}
+              {{ $thumbnail := .Process "resize 640x webp q82" }}
+              <a class="landing-work-preview" href="{{ printf "%s#%s" ("archivo-logros/" | relURL) ($item.category | urlize) }}" aria-label="Ver {{ $item.title }} en el archivo fotográfico">
+                <figure>
+                  <img src="{{ $thumbnail.RelPermalink }}" srcset="{{ $small.RelPermalink }} 480w, {{ $thumbnail.RelPermalink }} 640w" sizes="(max-width: 575.98px) 100vw, (max-width: 991.98px) 50vw, 33vw" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async">
+                  <figcaption>{{ $item.title }}</figcaption>
+                </figure>
+              </a>
+            {{ end }}
+          {{ end }}
+        </div>
+      </section>
       <div class="container landing-resume">
         <h3>{{ .resume_title }}</h3>
         <div class="landing-resume__identity">

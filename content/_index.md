@@ -278,6 +278,10 @@ candidate:
       sources:
         - label: "Registro Oficial 623: ordenanza de constitución de EPAA Mejía"
           url: "https://esacc.corteconstitucional.gob.ec/storage/api/v1/10_DWL_FL/eyJjYXJwZXRhIjoicm8iLCJ1dWlkIjoiMTNjNWNiNzQtMWUzZC00NDFkLTgzNWMtODYwYjRjYjAxMWM5LnBkZiJ9#page=2"
+  archive_eyebrow: "Archivo fotográfico · Memoria 2009–2013"
+  archive_title: "Más obras, más resultados"
+  archive_summary: "Una muestra de proyectos de infraestructura, educación, salud, deporte y vialidad. Explore el archivo completo del folleto de gestión municipal."
+  archive_action: "Explorar las 47 imágenes del archivo"
   resume_title: "Hoja de Vida"
   education_title: "Formación académica"
   education:
