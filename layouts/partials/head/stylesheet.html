@@ -1,0 +1,8 @@
+{{- $sassOptions := dict "targetPath" "css/style.css" "enableSourceMap" true "outputStyle" "expanded" "precision" 6 -}}
+
+{{ if eq hugo.Environment "production" -}}
+  {{- $sassOptions = merge $sassOptions (dict "outputStyle" "compressed") -}}
+{{- end -}}
+
+{{ $css := resources.Get "sass/main.scss" | toCSS $sassOptions | fingerprint "sha512" -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" media="screen" integrity="{{ $css.Data.Integrity }}" crossorigin="anonymous">

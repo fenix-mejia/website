@@ -25,7 +25,6 @@ if (header) {
   const delta = 5; // The scroll amount required before we act
   const navbarHeight = header.offsetHeight;
   const navbarCollapse = document.getElementById('navbarSupportedContent');
-  const mobileNavbar = window.matchMedia('(max-width: 991.98px)');
 
   const scheduleNavbarRelease = (delay) => {
     clearTimeout(menuInteractionTimer);
@@ -54,7 +53,7 @@ if (header) {
     const scrollTop = window.scrollY || document.documentElement.scrollTop;
     const menuIsOpen = navbarCollapse && navbarCollapse.classList.contains('show');
 
-    if (mobileNavbar.matches || menuIsOpen || menuInteraction) {
+    if (menuIsOpen || menuInteraction) {
       header.classList.remove('navbar-hidden');
       lastScrollTop = scrollTop;
       if (menuInteraction) {

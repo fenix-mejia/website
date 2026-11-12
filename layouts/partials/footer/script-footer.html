@@ -26,12 +26,14 @@
 
 {{ $autohideNavbar := resources.Get "js/autohide-navbar.js" }}
 {{ if $autohideNavbar }}
-  <script src="{{ $autohideNavbar.RelPermalink }}"></script>
+  {{ $autohideNavbar = $autohideNavbar | fingerprint "sha512" }}
+  <script src="{{ $autohideNavbar.RelPermalink }}" integrity="{{ $autohideNavbar.Data.Integrity }}" crossorigin="anonymous"></script>
 {{ end }}
 
 {{ $dropdownNavbar := resources.Get "js/dropdown-navbar.js" }}
 {{ if $dropdownNavbar }}
-  <script src="{{ $dropdownNavbar.RelPermalink }}" defer></script>
+  {{ $dropdownNavbar = $dropdownNavbar | fingerprint "sha512" }}
+  <script src="{{ $dropdownNavbar.RelPermalink }}" integrity="{{ $dropdownNavbar.Data.Integrity }}" crossorigin="anonymous" defer></script>
 {{ end }}
 
 {{ $accordionToggle := resources.Get "js/accordion-toggle.js" }}

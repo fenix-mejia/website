@@ -23,11 +23,26 @@ document.querySelectorAll('[data-dropdown-toggle]').forEach((button) => {
   });
 
   dropdown.querySelectorAll('.dropdown-item').forEach((link) => {
-    link.addEventListener('click', () => {
+    link.addEventListener('click', (event) => {
+      const navbarCollapse = document.getElementById('navbarSupportedContent');
+      const mobileMenuIsOpen = navbarCollapse && navbarCollapse.classList.contains('show') && window.bootstrap;
+
+      if (mobileMenuIsOpen && link.hash) {
+        event.preventDefault();
+        navbarCollapse.addEventListener('hidden.bs.collapse', () => {
+          const target = document.getElementById(link.hash.slice(1));
+          if (target) {
+            history.pushState(null, '', link.hash);
+            target.scrollIntoView({ block: 'start' });
+          } else {
+            window.location.href = link.href;
+          }
+        }, { once: true });
+      }
+
       link.blur();
       closeDropdown();
-      const navbarCollapse = document.getElementById('navbarSupportedContent');
-      if (navbarCollapse && navbarCollapse.classList.contains('show') && window.bootstrap) {
+      if (mobileMenuIsOpen) {
         bootstrap.Collapse.getOrCreateInstance(navbarCollapse).hide();
       }
     });

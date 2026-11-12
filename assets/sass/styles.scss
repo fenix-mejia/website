@@ -11,6 +11,10 @@
 
 // 2. ---- APPLY GRADIENTS & GLOBAL STYLES ----
 
+html {
+  scroll-padding-top: 4rem;
+}
+
 body {
   background: var(--body-gradient);
 }
