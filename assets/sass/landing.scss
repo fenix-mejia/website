@@ -1263,14 +1263,6 @@
   }
 }
 
-@media (min-width: 992px) and (hover: hover) {
-  .menu-main .nav-item.dropdown:hover > .dropdown-menu,
-  .menu-main .nav-item.dropdown:focus-within > .dropdown-menu {
-    display: block;
-    margin-top: 0;
-  }
-}
-
 @media (hover: hover) {
   .landing-policy-card:hover {
     box-shadow: 0 18px 45px rgba(23, 47, 77, 0.1);

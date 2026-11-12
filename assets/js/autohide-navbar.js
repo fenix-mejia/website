@@ -27,13 +27,17 @@ if (header) {
   const navbarCollapse = document.getElementById('navbarSupportedContent');
   const mobileNavbar = window.matchMedia('(max-width: 991.98px)');
 
-  const holdNavbar = () => {
-    menuInteraction = true;
-    header.classList.remove('navbar-hidden');
+  const scheduleNavbarRelease = (delay) => {
     clearTimeout(menuInteractionTimer);
     menuInteractionTimer = setTimeout(() => {
       menuInteraction = false;
-    }, 400);
+    }, delay);
+  };
+
+  const holdNavbar = () => {
+    menuInteraction = true;
+    header.classList.remove('navbar-hidden');
+    scheduleNavbarRelease(400);
   };
 
   if (navbarCollapse) {
@@ -42,8 +46,8 @@ if (header) {
   }
 
   document.querySelectorAll('.menu-main .dropdown').forEach((dropdown) => {
-    dropdown.addEventListener('show.bs.dropdown', holdNavbar);
-    dropdown.addEventListener('hide.bs.dropdown', holdNavbar);
+    dropdown.addEventListener('dropdown:show', holdNavbar);
+    dropdown.addEventListener('dropdown:hide', holdNavbar);
   });
 
   window.addEventListener('scroll', debounce(function() {
@@ -53,6 +57,9 @@ if (header) {
     if (mobileNavbar.matches || menuIsOpen || menuInteraction) {
       header.classList.remove('navbar-hidden');
       lastScrollTop = scrollTop;
+      if (menuInteraction) {
+        scheduleNavbarRelease(150);
+      }
       return;
     }
 
