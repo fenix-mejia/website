@@ -7,26 +7,26 @@
     <div class="container archive-hero__inner">
       <a class="archive-back" href="{{ .Site.Home.RelPermalink }}#archivo-logros">
         <span aria-hidden="true">←</span>
-        Volver a trayectoria y logros
+        Vuelve a trayectoria y logros
       </a>
       <p class="archive-eyebrow">Memoria de gestión 2009–2013</p>
       <h1>{{ .Title }}</h1>
       <div class="archive-hero__summary">
-        <p>Obras y servicios documentados en el folleto institucional, reunidos para explorar con calma. Seleccione una imagen para verla en tamaño completo.</p>
-        <strong>{{ len $items }} registros visuales</strong>
+        <p>Una gestión que llegó a cada territorio. Explora por categoría y mira cada imagen en grande.</p>
+        <strong>{{ len $items }} imágenes</strong>
       </div>
     </div>
   </section>
 
   <div class="container archive-layout">
     <aside class="archive-sidebar" aria-label="Navegación persistente del archivo">
-      <a class="archive-back archive-sidebar__back" href="{{ .Site.Home.RelPermalink }}#archivo-logros" aria-label="Volver a trayectoria y logros">
+      <a class="archive-back archive-sidebar__back" href="{{ .Site.Home.RelPermalink }}#archivo-logros" aria-label="Vuelve a trayectoria y logros">
         <span aria-hidden="true">←</span>
-        <span class="archive-back__full">Volver a trayectoria y logros</span>
-        <span class="archive-back__short">Volver</span>
+        <span class="archive-back__full">Vuelve a trayectoria y logros</span>
+        <span class="archive-back__short">Vuelve</span>
       </a>
       <nav class="archive-categories" aria-labelledby="archive-categories-title">
-        <p class="archive-sidebar__title" id="archive-categories-title">Explorar por categoría</p>
+        <p class="archive-sidebar__title" id="archive-categories-title">Explora por categoría</p>
         <p class="archive-sidebar__meta">{{ len $items }} imágenes · {{ len $categories }} categorías</p>
         <ul data-archive-categories>
           {{ range $index, $category := $categories }}
@@ -46,7 +46,7 @@
       <section class="archive-group" id="{{ $categoryID }}" aria-labelledby="{{ $categoryID }}-title">
         <header class="archive-group__header">
           <h2 id="{{ $categoryID }}-title">{{ . }}</h2>
-          <span>{{ len $categoryItems }} registros</span>
+          <span>{{ len $categoryItems }} imágenes</span>
         </header>
         <div class="archive-grid">
           {{ range $categoryItems }}
@@ -57,13 +57,13 @@
               {{ $thumbnail := .Process "resize 640x webp q82" }}
               {{ $full := .Process "resize 1800x webp q88" }}
               <article class="archive-card">
-                <a href="{{ $full.RelPermalink }}" data-archive-item data-archive-title="{{ $item.title }}" data-archive-alt="{{ $alt }}" aria-label="Ampliar imagen: {{ $item.title }}">
+                <a href="{{ $full.RelPermalink }}" data-archive-item data-archive-title="{{ $item.title }}" data-archive-alt="{{ $alt }}" aria-label="Mira la imagen: {{ $item.title }}">
                   <div class="archive-card__media">
                     <img src="{{ $thumbnail.RelPermalink }}" srcset="{{ $small.RelPermalink }} 480w, {{ $thumbnail.RelPermalink }} 640w" sizes="(max-width: 575.98px) 100vw, (max-width: 991.98px) 50vw, 33vw" width="{{ $thumbnail.Width }}" height="{{ $thumbnail.Height }}" alt="{{ $alt }}" loading="lazy" decoding="async">
                   </div>
                   <div class="archive-card__body">
                     <h3>{{ $item.title }}</h3>
-                    <span>Ver imagen <span aria-hidden="true">↗</span></span>
+                    <span>Mira la imagen <span aria-hidden="true">↗</span></span>
                   </div>
                 </a>
               </article>
@@ -82,22 +82,22 @@
           <span id="archive-viewer-count"></span>
           <h2 id="archive-viewer-title"></h2>
         </div>
-        <button class="archive-viewer__button" id="archive-viewer-close" type="button" aria-label="Cerrar imagen ampliada">
+        <button class="archive-viewer__button" id="archive-viewer-close" type="button" aria-label="Cierra la imagen ampliada">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3 3 10 10M13 3 3 13"></path></svg>
         </button>
       </header>
       <div class="archive-viewer__stage">
-        <button class="archive-viewer__button" id="archive-viewer-previous" type="button" aria-label="Ver imagen anterior">
+        <button class="archive-viewer__button" id="archive-viewer-previous" type="button" aria-label="Mira la imagen anterior">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m10 3-5 5 5 5"></path></svg>
         </button>
         <img id="archive-viewer-image" width="1800" height="1350" alt="">
-        <button class="archive-viewer__button" id="archive-viewer-next" type="button" aria-label="Ver imagen siguiente">
+        <button class="archive-viewer__button" id="archive-viewer-next" type="button" aria-label="Mira la imagen siguiente">
           <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5"></path></svg>
         </button>
       </div>
       <footer class="archive-viewer__footer">
-        <span>Use las flechas del teclado para recorrer el archivo</span>
-        <a id="archive-viewer-open" href="#" target="_blank" rel="noopener noreferrer">Abrir imagen en una pestaña nueva</a>
+        <span>Usa las flechas del teclado para recorrer el archivo</span>
+        <a id="archive-viewer-open" href="#" target="_blank" rel="noopener noreferrer">Abre la imagen en una pestaña nueva</a>
       </footer>
     </div>
   </dialog>
