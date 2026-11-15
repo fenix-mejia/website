@@ -1,8 +1,26 @@
 {{/* layouts/partials/contacto/map.html */}}
 {{/* Use a single 'if' to check for all required params without changing context */}}
 {{ if and .Site.Params.enableOSM .Site.Params.latitude .Site.Params.longitude }}
+{{ $campaignLocations := .Site.Data.contacto.sedes_campana }}
 
-<div id="osm-map" style="height: 450px; width: 100%;"></div>
+<div id="osm-map" style="height: 450px; width: 100%;" role="region" aria-label="Mapa de la sede del Movimiento Fénix y las sedes de campaña en Mejía"></div>
+
+{{ with $campaignLocations }}
+  <section class="campaign-locations container" aria-labelledby="campaign-locations-title">
+    <h2 id="campaign-locations-title">Sedes de campaña por parroquia</h2>
+    <p>Encuentra nuestras sedes de campaña en estas parroquias:</p>
+    <ul>
+      {{ range . }}
+        <li>
+          <a href="{{ printf "https://www.openstreetmap.org/?mlat=%v&mlon=%v#map=17/%v/%v" .latitude .longitude .latitude .longitude | safeURL }}" target="_blank" rel="noopener noreferrer" aria-label="Abrir la ubicación de la sede de campaña en {{ .name }} en OpenStreetMap">
+            {{ .name }}
+            <span aria-hidden="true">↗</span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+{{ end }}
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
@@ -16,6 +34,7 @@
             const zoom = {{ default 14 .Site.Params.mapZoom }};
 
             const map = L.map(mapElement).setView([lat, lng], zoom);
+            const bounds = L.latLngBounds([[lat, lng]]);
 
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19,
@@ -31,27 +50,66 @@
                     popupAnchor:  {{ .Site.Params.customMarkerPopupAnchor | default "[-3, -76]" }}
                 });
 
-                L.marker([lat, lng], {icon: customIcon}).addTo(map)
+                L.marker([lat, lng], {
+                    icon: customIcon,
+                    title: 'Sede del Movimiento Fénix en Machachi',
+                    alt: 'Sede del Movimiento Fénix en Machachi'
+                }).addTo(map)
                     .bindPopup(`{{ .Site.Params.mapMarkerText | safeHTML }}`)
                     .openPopup();
             {{ else }}
-                L.marker([lat, lng]).addTo(map)
+                L.marker([lat, lng], {
+                    title: 'Sede del Movimiento Fénix en Machachi',
+                    alt: 'Sede del Movimiento Fénix en Machachi'
+                }).addTo(map)
                     .bindPopup(`{{ .Site.Params.mapMarkerText | safeHTML }}`)
                     .openPopup();
             {{ end }}
+
+            {{ with $campaignLocations }}
+                const campaignIcon = L.icon({
+                    iconUrl: '{{ "images/marker-campaign.svg" | relURL }}',
+                    iconSize: [32, 44],
+                    iconAnchor: [16, 43],
+                    popupAnchor: [0, -42]
+                });
+
+                {{ range . }}
+                    L.marker([{{ .latitude }}, {{ .longitude }}], {
+                        icon: campaignIcon,
+                        title: 'Sede de campaña en {{ .name }}',
+                        alt: 'Sede de campaña en {{ .name }}'
+                    }).addTo(map)
+                        .bindPopup(`<strong>Sede de campaña</strong><br>{{ .name }}`);
+                    bounds.extend([{{ .latitude }}, {{ .longitude }}]);
+                {{ end }}
+
+                map.fitBounds(bounds, {padding: [36, 36]});
+            {{ end }}
+        };
+
+        let mapInitialized = false;
+        const initializeMapOnce = () => {
+            if (mapInitialized) {
+                return;
+            }
+            mapInitialized = true;
+            initializeMap();
         };
 
         if ('IntersectionObserver' in window) {
             const observer = new IntersectionObserver((entries) => {
                 if (entries[0].isIntersecting) {
                     observer.disconnect();
-                    initializeMap();
+                    initializeMapOnce();
                 }
             }, {rootMargin: '300px 0px'});
             observer.observe(mapElement);
         } else {
-            initializeMap();
+            initializeMapOnce();
         }
+
+        window.addEventListener('load', initializeMapOnce, {once: true});
     });
 </script>
 
